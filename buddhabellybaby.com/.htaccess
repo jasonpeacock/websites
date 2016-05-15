@@ -1,0 +1,11 @@
+SSLOptions +StrictRequire
+SSLRequireSSL
+SSLRequire %{HTTP_HOST} eq "buddhabellybaby.com"
+ErrorDocument 403 https://buddhabellybaby.com
+
+# Redirect all requests transparently to temp page
+#Options +FollowSymlinks
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REQUEST_URI} !/maintenance.html$
+#RewriteRule .* /maintenance.html [L]

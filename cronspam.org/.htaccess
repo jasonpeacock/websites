@@ -1,0 +1,11 @@
+SSLOptions +StrictRequire
+SSLRequireSSL
+SSLRequire %{HTTP_HOST} eq "cronspam.org"
+ErrorDocument 403 https://cronspam.org
+
+# Redirect all requests transparently to temp page
+#Options +FollowSymlinks
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REQUEST_URI} !/maintenance.html$
+#RewriteRule .* /maintenance.html [L]

@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !^/?googleec2f5c9b4d51faf0\.html
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect all requests transparently to temp page
+#Options +FollowSymlinks
+#RewriteCond %{REQUEST_URI} !/maintenance.html$
+#RewriteRule .* /maintenance.html [L]
+
+#SSLOptions +StrictRequire
+#SSLRequireSSL
+#SSLRequire %{HTTP_HOST} eq "jasonpeacock.com"
+#ErrorDocument 403 https://jasonpeacock.com
