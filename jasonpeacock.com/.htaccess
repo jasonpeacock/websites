@@ -1,13 +1,56 @@
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
+</ifmodule>
+
+# 2592000 = 30   days
+# 604800  =  7   days
+# 216000  =  2.5 days
+#    600  = 10   minutes
+<ifModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 5 seconds"
+ExpiresByType image/x-icon "access plus 600 seconds"
+ExpiresByType image/jpeg "access plus 600 seconds"
+ExpiresByType image/png "access plus 600 seconds"
+ExpiresByType image/gif "access plus 600 seconds"
+ExpiresByType application/x-font-woff "access plus 2592000 seconds"
+ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+ExpiresByType text/css "access plus 600 seconds"
+ExpiresByType text/javascript "access plus 216000 seconds"
+ExpiresByType application/javascript "access plus 216000 seconds"
+ExpiresByType application/x-javascript "access plus 216000 seconds"
+ExpiresByType text/html "access plus 600 seconds"
+ExpiresByType application/xhtml+xml "access plus 600 seconds"
+</ifModule>
+
+Options +FollowSymlinks -Indexes
+
+# Custom error pages
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 RewriteBase /
 
+# don't force SSL/Rewrites for Google ownership proof
 RewriteCond %{REQUEST_URI} !^/?googleec2f5c9b4d51faf0\.html
 
+# force SSL redirect
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# add .html to any unknown request
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\ HTTP/
+RewriteRule ^(.*)index$ https://jasonpeacock.com/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/$ https://jasonpeacock.com/$1 [L,R=301]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.php\ HTTP/
+RewriteRule ^(.+)\.html$ https://jasonpeacock.com/$1 [L,R=301]
+RewriteRule ^([a-z]+)$ /$1.html [L]
+
 # Redirect all requests transparently to temp page
-#Options +FollowSymlinks
 #RewriteCond %{REQUEST_URI} !/maintenance.html$
 #RewriteRule .* /maintenance.html [L]
 
