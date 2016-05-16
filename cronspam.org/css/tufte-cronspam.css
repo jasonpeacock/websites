@@ -42,9 +42,11 @@ body { width: 87.5%;
        margin-left: auto;
        margin-right: auto;
        padding-left: 12.5%;
-       font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       /* use sans instead */
+       font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+       letter-spacing: .03em;
        background-color: #fffff8;
-       color: #111;
+       color: #040e76; /* sort of a dark navy/purple (was: #111) */
        max-width: 1400px;
        counter-reset: sidenote-counter; }
 
@@ -218,8 +220,9 @@ div.table-wrapper { overflow-x: auto;
                                                                                  max-width: none; }
                                        blockquote p, blockquote footer { width: 90%; }}
 
-.sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-        letter-spacing: .03em; }
+/* this used to be the default body font */
+.serif { font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+         letter-spacing: normal; }
 
 .code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
         font-size: 1.125rem;
