@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Publish the website in the given directory
+# to the webhost using rsync, overwriting the
+# destination to match exactly the local copy.
+
+USER=$(<$HOME/.certs/webhost.username)
+
+WEBSITE=$1
+shift
+
+echo "Publishing $WEBSITE..."
+rsync \
+    --checksum \
+    --recursive \
+    --links \
+    --perms \
+    --compress \
+    --safe-links \
+    --delete-after \
+    --delete \
+    --force \
+    --delay-updates \
+    --stats \
+    --human-readable \
+    --progress \
+    $WEBSITE \
+    $USER@$WEBSITE:/home/$USER
+echo "Done!"
+
