@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-
-# Publish the website in the given directory
-# to the webhost using rsync, overwriting the
+#
+# Publish the website in the given directory to the webhost using rsync, overwriting the
 # destination to match exactly the local copy.
+#
+set -o errexit -o nounset -o pipefail
 
-USER=$(<$HOME/.certs/webhost.username)
+USER="$(<"${HOME}/.certs/webhost.username")"
+readonly USER
 
-WEBSITE=$1
+readonly WEBSITE="${1}"
 shift
 
-echo "Publishing $WEBSITE..."
+echo "Publishing ${WEBSITE}..."
+
 rsync \
     --checksum \
     --recursive \
@@ -24,7 +27,8 @@ rsync \
     --stats \
     --human-readable \
     --progress \
-    $WEBSITE \
-    $USER@$WEBSITE:/home/$USER
+    "${WEBSITE}" \
+    "${USER}@${WEBSITE}:/home/${USER}"
+
 echo "Done!"
 
