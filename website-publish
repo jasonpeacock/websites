@@ -9,7 +9,6 @@ USER="$(<"${HOME}/.certs/webhost.username")"
 readonly USER
 
 readonly WEBSITE="${1}"
-shift
 
 echo "Publishing ${WEBSITE}..."
 

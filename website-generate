@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Generate HTML from markdown files, and copy resources,
+# to produce a commplete website.
+set -o errexit -o nounset -o pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_DIR
+
+readonly WEBSITE="${1}"
+readonly WEBSITE_MARKDOWN="${SCRIPT_DIR}/${WEBSITE%%\.*}.markdown"
+readonly WEBSITE_HTML="${SCRIPT_DIR}/${WEBSITE}"
+
+readonly DATA_DIR="${WEBSITE_MARKDOWN}/pandocomatic"
+readonly INPUT_DIR="${WEBSITE_MARKDOWN}/content"
+readonly OUTPUT_DIR="${WEBSITE_HTML}"
+readonly RESOURCES_DIR="${WEBSITE_MARKDOWN}/resources"
+
+start_time="$(date +%s)"
+readonly start_time
+
+# Copy all resources to output, and delete anything in output that
+# is not in resources - this will remove any generated HTML, which
+# is OK (and preferred) b/c we're going to generate fresh HTML next.
+rsync -a --delete "${RESOURCES_DIR}/" "${OUTPUT_DIR}/"
+
+# Generate fresh HTML from the markdown files.
+pandocomatic \
+    --quiet \
+    --data-dir "${DATA_DIR}" \
+    --input "${INPUT_DIR}" \
+    --output "${OUTPUT_DIR}"
+
+end_time="$(date +%s)"
+readonly end_time
+
+((elapsed_time = end_time - start_time))
+readonly elapsed_time
+
+echo >&2 "Website updated in [${elapsed_time}] seconds"

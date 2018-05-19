@@ -1,0 +1,23 @@
+settings:
+    recursive: true
+    follow-links: false
+    skip: ['.*', 'pandocomatic.yaml']
+templates:
+    blog:
+        glob: ['*.md']
+        setup: []
+        preprocessors: []
+        pandoc:
+            css:
+                - /css/pandoc-solarized.css
+                - /css/pandoc.css
+                - /css/tufte-extra.css
+                - /css/tufte.css
+            filter: pandoc-sidenote
+            from: markdown
+            section-divs: true
+            template: tufte.html5
+            to: html5
+        postprocessors:
+            - postprocessors/tidy.sh
+        cleanup: []
