@@ -11,15 +11,16 @@ date: 'May 15, 2018'
 * [Being Fit](/articles/fitness)
 * [Building A Sauna](/articles/diy_sauna)
 * [Cool Tools](/articles/cool_tools)
+* [Home Networking](/articles/home_networking)
 * [Remodeling A House](/articles/house_remodel)
 
 ## Projects
 
+* [The Autobroom!](/projects/auto_broom)
 * [Bottleshaker](/projects/bottleshaker)
 * [Chiminea](/projects/chiminea)
-* [Learning C++ (Again)](/projects/learning_cpp)
-* [The Autobroom!](/projects/auto_broom)
 * [The Danaides Water Controller](/projects/danaides)
+* [Learning C++ (Again)](/projects/learning_cpp)
 
 ## Links
 

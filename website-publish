@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 #
 # Publish the website in the given directory to the webhost using rsync, overwriting the
-# destination to match exactly the local copy.
-#
+# destination to exactly match the local copy.
 set -o errexit -o nounset -o pipefail
 
 USER="$(<"${HOME}/.certs/webhost.username")"
-readonly USER
+declare -r USER
 
-readonly WEBSITE="${1}"
+declare -r WEBSITE="${1:-}"
 
-echo "Publishing ${WEBSITE}..."
+if [[ -z "${WEBSITE}" ]]; then
+  echo >&2 "Usage: $0 <website>"
+  exit 1
+fi
+
+echo >&2 "Publishing [${WEBSITE}]"
 
 rsync \
     --checksum \
@@ -29,5 +33,5 @@ rsync \
     "${WEBSITE}" \
     "${USER}@${WEBSITE}:/home/${USER}"
 
-echo "Done!"
+echo >&2 "Done!"
 

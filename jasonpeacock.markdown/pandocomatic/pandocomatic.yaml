@@ -14,10 +14,11 @@ templates:
                 - /css/tufte-extra.css
                 - /css/tufte.css
             filter: pandoc-sidenote
-            from: markdown
+            from: markdown+implicit_header_references
             section-divs: true
             template: tufte.html5
             to: html5
+            toc: true
         postprocessors:
             - postprocessors/tidy.sh
         cleanup: []

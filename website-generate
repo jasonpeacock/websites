@@ -1,23 +1,31 @@
 #!/usr/bin/env bash
 #
 # Generate HTML from markdown files, and copy resources,
-# to produce a commplete website.
+# to produce a complete website.
 set -o errexit -o nounset -o pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly SCRIPT_DIR
+declare -r SCRIPT_DIR
 
-readonly WEBSITE="${1}"
-readonly WEBSITE_MARKDOWN="${SCRIPT_DIR}/${WEBSITE%%\.*}.markdown"
-readonly WEBSITE_HTML="${SCRIPT_DIR}/${WEBSITE}"
+declare -r WEBSITE="${1:-}"
 
-readonly DATA_DIR="${WEBSITE_MARKDOWN}/pandocomatic"
-readonly INPUT_DIR="${WEBSITE_MARKDOWN}/content"
-readonly OUTPUT_DIR="${WEBSITE_HTML}"
-readonly RESOURCES_DIR="${WEBSITE_MARKDOWN}/resources"
+if [[ -z "${WEBSITE}" ]]; then
+  echo >&2 "Usage: $0 <website>"
+  exit 1
+fi
+
+declare -r WEBSITE_MARKDOWN="${SCRIPT_DIR}/${WEBSITE%%\.*}.markdown"
+declare -r WEBSITE_HTML="${SCRIPT_DIR}/${WEBSITE}"
+
+declare -r DATA_DIR="${WEBSITE_MARKDOWN}/pandocomatic"
+declare -r INPUT_DIR="${WEBSITE_MARKDOWN}/content"
+declare -r OUTPUT_DIR="${WEBSITE_HTML}"
+declare -r RESOURCES_DIR="${WEBSITE_MARKDOWN}/resources"
+
+echo >&2 "Generating [${WEBSITE}]"
 
 start_time="$(date +%s)"
-readonly start_time
+declare -r start_time
 
 # Copy all resources to output, and delete anything in output that
 # is not in resources - this will remove any generated HTML, which
@@ -32,9 +40,9 @@ pandocomatic \
     --output "${OUTPUT_DIR}"
 
 end_time="$(date +%s)"
-readonly end_time
+declare -r end_time
 
 ((elapsed_time = end_time - start_time))
-readonly elapsed_time
+declare -r elapsed_time
 
 echo >&2 "Website updated in [${elapsed_time}] seconds"
