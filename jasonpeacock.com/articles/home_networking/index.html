@@ -32,14 +32,17 @@
                 <li><a href="#equipment">Equipment</a></li>
                 <li><a href="#configuration">Configuration</a></li>
                 </ul></li>
-                <li><a href="#ad-blocking">Ad Blocking</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#appendix">Appendix</a><ul>
+                <li><a href="#internal-endpoints">Internal Endpoints</a></li>
+                </ul></li>
                 </ul>
             </nav>
                                     <section id="go-professional" class="level2">
 <h2>Go Professional</h2>
 <p>If your home networking needs are simple<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">A single WIFI router provides full coverage and you only need a single WIFI network/SSID.<br />
 <br />
-</span></span>, get a <a href="https://thewirecutter.com/reviews/best-wi-fi-router/">consumer wireless router</a>. But if you need more from your home network, don’t settle for consumer networking equipment.</p>
+</span></span>, get a <a href="https://thewirecutter.com/reviews/best-wi-fi-router/">consumer wireless router</a>. But if you need more from your home network, you’ll be frustrated with consumer networking equipment.</p>
 <p>Don’t be afraid to use professional networking equipment. Unfortunately, small-business networking equipment like <a href="https://www.cisco.com/c/en/us/solutions/small-business.html">Cisco</a> or <a href="https://www.arubanetworks.com/">Aruba</a> are too expensive for most homes, but <a href="https://www.ubnt.com/">Ubiquiti</a> is reasonably priced and provides all the features you need for your home network.</p>
 </section>
 <section id="my-setup" class="level2">
@@ -51,23 +54,59 @@
 </span></span>; there is no central location for a WIFI router that provides a strong signal everywhere. Most frustratingly, the signal was weakest in the garage (my workshop) and the master bedroom, and there was no signal at all in the yard.</p>
 <p>At the same time, with the growth of the Internet of Things (IoT), I now have multiple Amazon Echos &amp; Dash buttons, Sonos speakers, <a href="https://www.electricobjects.com/">digital art frame</a>, <a href="https://www.ambientweather.com/amws1000wifi.html">weather station</a>, <a href="https://www.purpleair.com/sensors">air quality monitor</a>, Raspberry Pis, smart TVs, and more. Because IoT devices are infamous for their <a href="https://www.google.com/search?q=iot+security+attacks">poor network security</a> I want them on their own network, segregated from my primary home network.</p>
 <p>I attempted to solve these issues with consumer equipment - I tried (multiple times) using an older WIFI router configured as an access point to extend the range, but configuration was difficult and error prone. I tried using WIFI range extenders, but they were just as flaky and difficult to configure. I tried configuring multiple SSIDs and controlling their access in the router, but again configuration was difficult.</p>
-<p>I was tired of trying, I wanted a professional solution that just worked.</p>
+<p>I was tired of trying; <em>I want a professional solution that just works</em>.</p>
 </section>
 <section id="equipment" class="level3">
 <h3>Equipment</h3>
-<ul>
-<li>1x USG</li>
-<li>2x AP-AC-LITE</li>
-<li>1x Cloud Key</li>
-</ul>
+<p><em>Listed roughly in order of connection.</em></p>
+<dl>
+<dt><a href="https://smile.amazon.com/dp/B00YUU5628">Arris SURFBoard SB6141 DOCSIS 3.0 Cable Modem</a></dt>
+<dd>My ISP is Comcast Xfinity, so I need a cable modem. Renting their cable modem is expensive and is managed by them - <a href="https://www.xfinity.com/support/articles/disable-xfinity-wifi-home-hotspot">they enable a public WIFI hotspot by default</a>.
+</dd>
+<dt><a href="https://www.ubnt.com/unifi-routing/usg/">UniFi Security Gateway (USG)</a></dt>
+<dd>The brains of the network - it manages the LAN, VLAN, and WLAN, with multiple SSIDs, sandboxing of networks, DHCP service, and bridges my home network to the ISP’s network.
+</dd>
+<dt><a href="https://www.amazon.com/D-Link-24-Port-Rackmountable-Gigabit-DGS-1024D/dp/B0002TPFTA">D-Link 24-Port Rackmountable Gigabit Switch DGS-1024D</a></dt>
+<dd>Connects everything in the server closet and all Ethernet ports around the house. If a device is stationary (Sonos, Fire TV, etc) then it uses Ethernet instead of WIFI.
+</dd>
+<dt><a href="https://www.ubnt.com/unifi/unifi-ap-ac-lite/">UniFi AP AC LITE</a></dt>
+<dd>The actual WIFI access points, they are connected via POE Ethernet to the switch, and are managed by the USG. There is one at each end of the house to provide full coverage across the house and yard.
+</dd>
+<dt><a href="https://www.ubnt.com/unifi/unifi-cloud-key/">UniFi Cloud Key</a></dt>
+<dd>The cloud key is not required, you can run the controller software on your own PC. The cloud key gives you “always on” access and metrics, it is also connected to the switch. I managed the home network for 2 years without the cloud key, but I really like having the metrics continously recorded, including a speedtest of the ISP.
+</dd>
+<dt><a href="https://www.adafruit.com/product/3974">Adafruit Ad Blocking Kit for Pi-Hole</a></dt>
+<dd>Block ads &amp; tracking on the home network for all devices. Using ad-blocking plugins for browsers is simple enough, but it’s harder to setup ad-blocking for phones, tablets, etc. The solution is to block ads at the network level, using DNS to route ad requests to a blackhole.
+</dd>
+</dl>
 </section>
 <section id="configuration" class="level3">
 <h3>Configuration</h3>
-<p>Workaround for an issue in the latest version of the USG software: <a href="https://community.ubnt.com/t5/UniFi-Routing-Switching/Bug-USG3-randomly-dropping-WAN-Workaround-disable-the-Uplink/td-p/2544759">Bug: USG3 randomly dropping WAN. Workaround: disable the Uplink Connectivity Monitor &amp; Speed Test</a></p>
+<p>Workaround for an issue in the latest version of the USG software:</p>
+<ul>
+<li><a href="https://community.ubnt.com/t5/UniFi-Routing-Switching/Bug-USG3-randomly-dropping-WAN-Workaround-disable-the-Uplink/td-p/2544759">Bug: USG3 randomly dropping WAN. Workaround: disable the Uplink Connectivity Monitor &amp; Speed Test</a></li>
+</ul>
 </section>
 </section>
-<section id="ad-blocking" class="level2">
-<h2>Ad Blocking</h2>
+<section id="faq" class="level2">
+<h2>FAQ</h2>
+<p><strong>Why don’t you use <a href="https://eero.com/">Eero</a> to solve the WIFI coverage problems?</strong></p>
+<p>The drawback to mesh networking, and WIFI range extenders in general, is they are simply repeaters for existing WIFI, and can only provide as much bandwidth as the original WIFI link. If you have two repeaters on the same WIFI, they must share the original WIFI’s bandwidth, at worst providing only 50% if each are fully utilized.</p>
+<p>I want full bandwidth available for all WIFI devices, which requires access points connected to Ethernet instead of simply repeating the WIFI signal.</p>
+<p>This is probably overkill, as most devices never fully utilize the available WIFI bandwidth.</p>
+</section>
+<section id="appendix" class="level2">
+<h2>Appendix</h2>
+<section id="internal-endpoints" class="level3">
+<h3>Internal Endpoints</h3>
+<ul>
+<li>Cloud Access: <a href="https://unifi.ubnt.com" class="uri">https://unifi.ubnt.com</a></li>
+<li>USG (router): <a href="https://192.168.1.1" class="uri">https://192.168.1.1</a></li>
+<li>Cloud Key: <a href="https://192.168.1.103" class="uri">https://192.168.1.103</a></li>
+<li>Controller: <a href="https://192.168.1.103:8443" class="uri">https://192.168.1.103:8443</a></li>
+<li>Pi-Hole: <a href="http://192.168.1.116/admin" class="uri">http://192.168.1.116/admin</a></li>
+</ul>
+</section>
 </section>
         </article>
             </body>

@@ -85,7 +85,7 @@ article { position: relative;
 section { padding-top: 1rem;
           padding-bottom: 1rem; }
 
-p, ol, ul { font-size: 1.4rem; }
+p, ol, ul, dl { font-size: 1.4rem; }
 
 p { line-height: 2rem;
     margin-top: 1.4rem;
@@ -115,11 +115,12 @@ blockquote footer { width: 55%;
                     font-size: 1.1rem;
                     text-align: right; }
 
-section>ol, section>ul { width: 45%;
+section>ol, section>ul, section>dl { width: 45%;
                          -webkit-padding-start: 5%;
                          -webkit-padding-end: 5%; }
 
 li { padding: 0.5rem 0; }
+dt { padding: 0.5rem 0; }
 
 figure { padding: 0;
          border: 0;
@@ -254,6 +255,7 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
                             pre.code { width: 97%; }
                             section > ol { width: 90%; }
                             section > ul { width: 90%; }
+                            section > dl { width: 90%; }
                             figure { max-width: 90%; }
                             figcaption, figure.fullwidth figcaption { margin-right: 0%;
                                                                       max-width: none; }
