@@ -5,24 +5,11 @@ subtitle: Senior Overall Engineer
 
 ## Articles
 
-<!--
-* [A Logging Manifesto](/articles/logging_manifesto)
-* [Being Fit](/articles/fitness)
-* [Building A Sauna](/articles/diy_sauna)
-* [Cool Tools](/articles/cool_tools)
-* [Remodeling A House](/articles/house_remodel)
--->
-* [Home Networking](/articles/home_networking)
+* [Home Networking](/articles/home-networking)
 
-<!--
-## Projects
+## Software
 
-* [The Autobroom!](/projects/auto_broom)
-* [Bottleshaker](/projects/bottleshaker)
-* [Chiminea](/projects/chiminea)
-* [The Danaides Water Controller](/projects/danaides)
-* [Learning C++ (Again)](/projects/learning_cpp)
--->
+* [Open Source Contributions](/software/open-source-contributions)
 
 ## Links
 
