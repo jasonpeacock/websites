@@ -9,9 +9,15 @@ subtitle: Senior Overall Engineer
 
 * [Home Networking](/articles/home-networking)
 
+## Boat
+
+* [Walrus](/boat/walrus)
+
 ## Software
 
-* [Open Source Contributions](/software/open-source-contributions)
+* [HT16K33](/software/ht16k33)
+* [led-bargraph](/software/led-bargraph)
+* [OSS Contributions](/software/open-source-contributions)
 
 ## Links
 

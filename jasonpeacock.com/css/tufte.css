@@ -209,7 +209,7 @@ div.table-wrapper { overflow-x: auto;
         letter-spacing: .03em; }
 
 code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-       font-size: 1.0rem;
+       font-size: 1.1rem;
        line-height: 1.42; }
 
 .sans > code { font-size: 1.2rem; }

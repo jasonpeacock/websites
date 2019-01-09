@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>led-bargraph</title>
+  <style type="text/css">
+  code{white-space: pre;}
+  </style>
+  <link rel="stylesheet" href="/css/pandoc-solarized.css">
+  <link rel="stylesheet" href="/css/pandoc.css">
+  <link rel="stylesheet" href="/css/tufte-extra.css">
+  <link rel="stylesheet" href="/css/tufte.css"><!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+  <article>
+    <header>
+      <h1 class="title">led-bargraph</h1>
+      <p class="subtitle">Measure it, display it!</p>
+    </header>
+    <p><code>led-bargraph</code> is a Rust library & application for the
+    <a href="https://www.adafruit.com/product/1721">Adafruit Bi-Color
+    (Red/Green) 24-Bar Bargraph w/I2C Backpack Kit</a>.</p>
+    <p>Available on <a href=
+    "https://github.com/jasonpeacock/led-bargraph">Github</a> and <a href=
+    "https://crates.io/crates/led-bargraph">crates.io</a> as
+    <code>led-bargraph</code>.</p>
+    <p><code>led-bargraph</code> was developed as a learning exercise for the
+    <a href="https://www.rust-lang.org/">Rust Programming Language</a>, and
+    to add some color to a small ARM-based buildfarm that I assembled using a
+    number of NVidia TX1 development boards:</p>
+    <p><a href="buildfarm.jpg"><img alt="TX1 Build Farm" src="buildfarm.jpg"
+    height="640" width="480"></a></p>
+    <p>Here, the LED bargraphs represent the current # of build tasks, you
+    can see them laid horizontally across the top of each board as a series
+    of green lights, or in the bottom board it is all red. A cron is run
+    locally on each development board and updates the LED bargraph via the
+    <code>led-bargraph</code> application.</p>
+  </article>
+</body>
+</html>
