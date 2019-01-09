@@ -1,8 +1,7 @@
 ---
 title: Learning C++ (Again)
 subtitle: You're never done learning
-author: Jason Peacock
-date: 'May 15, 2018'
+date: 'January 9, 2019'
 ---
 
 ## Table of Contents

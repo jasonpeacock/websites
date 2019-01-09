@@ -1,7 +1,6 @@
 ---
 title: Home Networking
-subtitle: It's complicated
-author: Jason Peacock
+subtitle: It's not that complicated
 date: 'October 28, 2018'
 toc-title: Table Of Contents
 ---

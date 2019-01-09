@@ -1,8 +1,7 @@
 ---
 title: Open Source Contributions
 subtitle: Giving back
-author: Jason Peacock
-date: 'January 8, 2019'
+date: 'January 9, 2019'
 ---
 
 [Hyperfine](https://github.com/sharkdp/hyperfine) ([commits](https://github.com/sharkdp/hyperfine/commits?author=jasonpeacock))
