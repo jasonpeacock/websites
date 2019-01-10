@@ -1,18 +1,22 @@
 ---
 title: Jason Peacock
 subtitle: Senior Overall Engineer
-date: 'January 9, 2019'
+date: 'January 10, 2019'
 ---
 
 ## About
 
 If you're a software developer and would like to chat, I have [office hours](/office-hours).
 
-I talk a bit about my [home networking](/articles/home-networking) setup. It's not too fancy, but it's better than the default cable modem + WIFI router setup.
-
-I have a boat, named [Walrus](/boating/walrus), that I cruise with in the PNW.
+I have a powerboat, [Walrus](/boating/walrus), that I cruise with in the PNW.
 
 I maintain an [led-bargraph library](/software/led-bargraph) for Rust, including a [driver for the HT16K33 chip](/software/ht16k33).
+
+## Highlights
+
+### January, 2019
+
+I hacked together a [silent "Ring Bell for Service" doorbell sign](projects/silent-ring-bell-for-service) for my open-office desk-space at work.
 
 ## Index
 
