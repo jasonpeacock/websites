@@ -4,6 +4,9 @@ subtitle:
 date: 'January 9, 2019'
 ---
 
+[Silent "Ring Bell for Service"](silent-ring-bell-for-service)
+:    I needed a quiet way for others to get my attention at the office.
+
 <!--
 [The Autobroom!](auto-broom)
 :    I needed to clean my roof. 24hrs later, I had something that worked as designed and my roof still needed cleaning.

@@ -17,7 +17,7 @@ templates:
             from: markdown+implicit_header_references
             section-divs: true
             template: tufte.html5
-            to: html5
+            to: html5+smart
             toc: true
         postprocessors:
             - postprocessors/tidy.sh
