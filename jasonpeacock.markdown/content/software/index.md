@@ -4,8 +4,6 @@ subtitle: Just for the fun of it
 date: 'January 9, 2019'
 ---
 
-I do get paid to write software, but I also enjoy writing software on my own -- it's an opportunity to practice and improve my existing skills and learn new skills.
-
 [HT16K33](ht16k33)
 :    A Rust library for the HT16K33 LED & keyscan chip, commonly used in LED displays.
 

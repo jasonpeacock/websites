@@ -20,7 +20,6 @@ I hacked together a [silent "Ring Bell for Service" doorbell sign](projects/sile
 
 ## Index
 
-* [Articles](articles)
 * [Boating](boating)
 * [Links](links)
 * [Projects](projects)
