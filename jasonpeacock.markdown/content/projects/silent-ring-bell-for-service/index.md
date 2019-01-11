@@ -73,7 +73,7 @@ Check to ensure everything still works by switching the sound off/on during play
 
 <figure>
 <video-js id="check_speaker_switch" class="vjs-16-9" controls preload="auto" data-setup='{}'>
-<source src="images/check_speaker_switch.mp4" type='video/mp4'>
+<source src="images/check_speaker_switch_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
 
@@ -98,7 +98,7 @@ And checked again to ensure everything still works.
 
 <figure>
 <video-js id="check_led_test_fit" class="vjs-16-9" controls preload="auto" data-setup='{}'>
-<source src="images/check_led_test_fit.mp4" type='video/mp4'>
+<source src="images/check_led_test_fit_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
 
@@ -110,7 +110,7 @@ And checked again to ensure everything still works. Yes, I really re-checked it 
 
 <figure>
 <video-js id="check_leds_final" class="vjs-16-9" controls preload="auto" data-setup='{}'>
-<source src="images/check_leds_final.mp4" type='video/mp4'>
+<source src="images/check_leds_final_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
 
@@ -156,8 +156,13 @@ Putting everything back together, it works! Silent, wireless operation with an o
 
 <figure>
 <video-js id="final_result" class="vjs-16-9" controls preload="auto" data-setup='{}'>
-<source src="images/final_result.mp4" type='video/mp4'>
+<source src="images/final_result_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
 
+## Lessons Learned, Feedback, and Improvements
+
+I'd have liked to use a fancier button, something like [this](https://www.adafruit.com/product/481), which would have fit in the center circle of the sign perfectly, but illuminated buttons require more power and I'd have to connect a power supply. And it would be much deeper, requiring a standoff mount. In the end, simpler is better.
+
+<!-- Load JS last after page load for best UX -->
 <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>

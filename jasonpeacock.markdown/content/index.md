@@ -4,13 +4,13 @@ subtitle: Senior Overall Engineer
 date: 'January 10, 2019'
 ---
 
-## About
+## Introduction
 
-If you're a software developer and would like to chat, I have [office hours](/office-hours).
+I have [office hours](office-hours) if you're a software developer and would like to chat about your career, the industry, interviewing, or other challenges.
 
-I have a powerboat, [Walrus](/boating/walrus), that I cruise with in the PNW.
+I have a powerboat, [Walrus](boating/walrus), that I cruise with in the PNW.
 
-I maintain an [led-bargraph library](/software/led-bargraph) for Rust, including a [driver for the HT16K33 chip](/software/ht16k33).
+I maintain an [led-bargraph library](software/led-bargraph) for Rust, including a [driver for the HT16K33 chip](software/ht16k33).
 
 ## Highlights
 
@@ -25,4 +25,4 @@ I hacked together a [silent "Ring Bell for Service" doorbell sign](projects/sile
 * [Projects](projects)
 * [Software](software)
 
-[Colophon](/colophon)
+[Colophon](colophon)
