@@ -1,8 +1,11 @@
 ---
 title: Projects
 subtitle:
-date: 'January 11, 2019'
+date: 'January 12, 2019'
 ---
+
+[The Autobroom!](autobroom)
+:    I needed to clean my roof.
 
 [Home Networking](home-networking)
 :    My home networking setup using Ubiquiti hardware.
@@ -14,9 +17,6 @@ date: 'January 11, 2019'
 :    I needed a quiet way for others to get my attention at the office.
 
 <!--
-[The Autobroom!](auto-broom)
-:    I needed to clean my roof. 24hrs later, I had something that worked as designed and my roof still needed cleaning.
-
 [Bottleshaker](bottleshaker)
 :    Making carbonated water at home is simple, but tedious -- so I attempted to automate it.
 

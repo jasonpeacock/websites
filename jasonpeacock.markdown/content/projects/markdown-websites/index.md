@@ -139,7 +139,15 @@ There are also alternatives to using `git-lfs` for managing large files:
 * [git-fat](https://github.com/jedbrown/git-fat)
 * [git-bigstore](https://github.com/lionheart/git-bigstore)
 
-For now, I'm using `git-lfs` with the default GitHub storage, later I will examine the alternatives and migrate to using S3 for my large file storage.
+For now, I'm using `git-lfs` with the default GitHub storage. It's configured to store all images, videos, and PDFs in GitHub's large file storage.
+
+For my websites, the `git-lfs` configuration is [`.gitattributes`](https://github.com/jasonpeacock/websites/blob/master/.gitattributes). An example is below.
+
+```
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+```
 
 ### Markdown
 

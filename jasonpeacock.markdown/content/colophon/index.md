@@ -1,7 +1,7 @@
 ---
 title: Colophon
 subtitle: How I made this website
-date: 'January 11, 2019'
+date: 'January 12, 2019'
 ---
 
 ## Motivation
@@ -21,6 +21,22 @@ Eliminating the comments section removes a lot of headache associated with manag
 Site navigation is a bit of an experiment. I have omitted any breadcrumbs, "Home" links, and other traditional navigation tools in support using the browser's own back button. The expectation is that users will click the back button when they want to go back to the previous page.
 
 This does present a challenge for users landing directly on a sub-page from external links, as their back button will not take them the website's homepage. For now, users can edit the location bar, though that is difficult on tablet & mobile browsers.
+
+## Style Guide
+
+[Start every section]{.newthought} with a *newthought*. All words in a section header are capitalized like a title.
+
+Sub-section headers have normal sentence capitalization, and do not start with a *newthought*.
+
+The article title is the largest text (`h1`). Section headers are next in size (`h2`), and sub-sections are smallest (`h3`). Do not use any headers smaller than `h3`.
+
+Use *epigraph* or *newthought* but not both.
+
+Images always have a link to a full-sized version.
+
+The page *date* refers to either when the project happened or when the page was last updated, as appropriate.
+
+A complete style guide is at [Tufte CSS](https://edwardtufte.github.io/tufte-css/).
 
 ## Tools
 

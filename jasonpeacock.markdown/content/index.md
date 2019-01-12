@@ -1,7 +1,7 @@
 ---
 title: Jason Peacock
 subtitle: Senior Overall Engineer
-date: 'January 11, 2019'
+date: 'January 12, 2019'
 ---
 
 ## Introduction
@@ -14,7 +14,7 @@ I maintain an [led-bargraph library](software/led-bargraph) for Rust, including 
 
 ## Highlights
 
-### January, 2019
+[The Autobroom!](projects/autobroom).
 
 How I build my websites [using markdown](projects/markdown-websites).
 

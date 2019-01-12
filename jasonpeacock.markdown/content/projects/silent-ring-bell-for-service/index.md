@@ -160,9 +160,7 @@ Hot glue is sticky, non-conductive, and insulating. I also used it to secure the
 </video-js>
 </figure>
 
-## Lessons Learned, Feedback, and Improvements
-
-[I'd have liked to use a fancier button]{.newthought}, something like [this](https://www.adafruit.com/product/481), which would have fit in the center circle of the sign perfectly, but illuminated buttons require more power and I'd have to connect a power supply. And it would be much deeper, requiring a standoff mount. In the end, simpler is better.
+I'd have liked to use a fancier button, something like [this](https://www.adafruit.com/product/481), which would have fit in the center circle of the sign perfectly, but illuminated buttons require more power and I'd have to connect a power supply. And it would be much deeper, requiring a standoff mount. In the end, simpler is better.
 
 <!-- Load JS last after page load for best UX -->
 <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
