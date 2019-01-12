@@ -66,7 +66,7 @@ $highlighting-css$
             $endif$
             $body$
         <footer>
-            Copyright&nbsp;&copy;&nbsp;2016&#8209;2019&nbsp;Jason&nbsp;Peacock All&nbsp;Rights&nbsp;Reserved.&nbsp;| Comments?&nbsp;Email&nbsp;me:&nbsp;<a href="mailto:jason@jasonpeacock.com">jason@jasonpeacock.com</a>&nbsp;
+            Copyright&nbsp;&copy;&nbsp;2016&#8209;2019&nbsp;Jason&nbsp;Peacock All&nbsp;Rights&nbsp;Reserved. Comments?&nbsp;Email&nbsp;me:&nbsp;<a href="mailto:jason@jasonpeacock.com">jason@jasonpeacock.com</a>
         </footer>
         </article>
         $for(include-after)$

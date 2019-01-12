@@ -72,7 +72,7 @@ This is a good trick when you don't have a good third-hand solution to hold ever
 Check to ensure everything still works by switching the sound off/on during playback.
 
 <figure>
-<video-js id="check_speaker_switch" class="vjs-16-9" controls preload="auto" data-setup='{}'>
+<video-js id="check_speaker_switch" class="vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup='{}'>
 <source src="images/check_speaker_switch_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
@@ -97,7 +97,7 @@ Before getting too far along I test-fit the LEDs and resistors.
 And checked again to ensure everything still works.
 
 <figure>
-<video-js id="check_led_test_fit" class="vjs-16-9" controls preload="auto" data-setup='{}'>
+<video-js id="check_led_test_fit" class="vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup='{}'>
 <source src="images/check_led_test_fit_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
@@ -109,7 +109,7 @@ Then I made it pretty, trimming the leads on the LEDs and resistors and solderin
 And checked again to ensure everything still works. Yes, I really re-checked it after each change, I didn't want to re-assemble the desktop unit and have it mysteriously not working because of a cold solder joint or other silly mistake.
 
 <figure>
-<video-js id="check_leds_final" class="vjs-16-9" controls preload="auto" data-setup='{}'>
+<video-js id="check_leds_final" class="vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup='{}'>
 <source src="images/check_leds_final_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
@@ -155,7 +155,7 @@ Hot glue is sticky, non-conductive, and insulating. I also used it to secure the
 [Putting everything back together]{.newthought}, it works! Silent, wireless operation with an obvious sign and flashing lights.
 
 <figure>
-<video-js id="final_result" class="vjs-16-9" controls preload="auto" data-setup='{}'>
+<video-js id="final_result" class="vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup='{}'>
 <source src="images/final_result_web.mp4" type='video/mp4'>
 </video-js>
 </figure>

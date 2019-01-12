@@ -20,6 +20,8 @@ My goals are:
 * Static website. No dependencies on webservers, databases, CGI scripts, VMs, etc.
 * Long-term support. I don't want to convert my website to a different framework in a few years.
 
+My websites are available in [GitHub](https://github.com/jasonpeacock/websites) to follow along.
+
 ### Style
 
 I've long admired [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte)'s[^edward_tufte] series of [books abut data visualization](https://smile.amazon.com/Edward-R.-Tufte/e/B000APET3Y).
@@ -112,9 +114,9 @@ Thus it follows that when I'm writing and editing website content, I am using a 
 > </footer>
 </div>
 
-The same lesson applies to websites and their content. I'm using [Git](https://git-scm.com/) for versioning my websites and content, and [Github](https://github.com/) for backup.
+The same lesson applies to websites and their content. I'm using [Git](https://git-scm.com/) for versioning my websites and content, and [GitHub](https://github.com/) for backup.
 
-Github is free for personal/public use, and as the website is public it's OK for the source to also be public. I learned a lot from digging into others' website repositories, I don't want to prevent others from learning from my own website repositories.
+GitHub is free for personal/public use, and as the website is public it's OK for the source to also be public. I learned a lot from digging into others' website repositories, I don't want to prevent others from learning from my own website repositories.
 
 ### Managing Large Files
 
@@ -125,7 +127,7 @@ I use [`git-lfs`](https://git-lfs.github.com/) to push the large files to separa
 [^git_lfs_where]:
 [Where are git-lfs files stored?](https://stackoverflow.com/questions/34181356/where-are-git-lfs-files-stored)
 
-`git-lfs` is a bit of black magic, files are stored by default in the Github *Large File Storage*, wherever that may be -- it's not explained very well. There are some projects that provide alternative locations for large file storage, such as [AWS S3](https://aws.amazon.com/s3/):
+`git-lfs` is a bit of black magic, files are stored by default in the GitHub *Large File Storage*, wherever that may be -- it's not explained very well. There are some projects that provide alternative locations for large file storage, such as [AWS S3](https://aws.amazon.com/s3/):
 
 * [node-git-lfs](https://github.com/kzwang/node-git-lfs) ([how-to](https://www.imakewebsites.ca/posts/2017/02/08/host-your-own-git-lfs-with-node-lfs-s3/))
 * [git-lfs-s3](https://github.com/meltingice/git-lfs-s3) (No longer maintained)
@@ -137,7 +139,7 @@ There are also alternatives to using `git-lfs` for managing large files:
 * [git-fat](https://github.com/jedbrown/git-fat)
 * [git-bigstore](https://github.com/lionheart/git-bigstore)
 
-For now, I'm using `git-lfs` with the default Github storage, later I will examine the alternatives and migrate to using S3 for my large file storage.
+For now, I'm using `git-lfs` with the default GitHub storage, later I will examine the alternatives and migrate to using S3 for my large file storage.
 
 ### Markdown
 
@@ -415,7 +417,10 @@ They are still slightly broken and require at least 1 sidenote to exist in the p
 
 ### Containerize the tools
 
-There are a few tools and dependencies to install, as hard as I tried to minimize them. It would be awesome to have everything captured in a `Dockerfile` and runnable in a Docker container.
+There are a few tools and dependencies to install, as hard as I tried to minimize them. It would be awesome to have everything captured in a `Dockerfile` and runnable in a Docker container[^docker].
+
+[^docker]:
+An [existing](https://github.com/SilverSoldier/tufte-pandoc-css-docker) project that does this already.
 
 ### Host on S3/Cloudfront
 
@@ -425,7 +430,7 @@ Also look into using Cloudfront to cache the static pages for even faster pagelo
 
 ### Store `git-lfs` files on S3
 
-It's unsettling to use `git-lfs` and have files stored in an vaguely-documented "github server". While I'm using Github it makes sense to also use Github for large file storage.
+It's unsettling to use `git-lfs` and have files stored in an vaguely-documented "github server". While I'm using GitHub it makes sense to also use GitHub for large file storage.
 
 It would be trivial to copy the repo to an S3 bucket, but then I need find a way to redirect `git-lfs` to also use the same S3 bucket.
 
@@ -487,7 +492,7 @@ Epigraphs/blockquotes require a wrapping `<div class="epigraph">` tag.
 the blockquote won't be wrapped in `<p>` tags and it will not constrain itself
 to the column width.*
 
-```{.markdown}
+```{.html}
 <div class="epigraph">
 > Something insightful.
 >
@@ -535,7 +540,7 @@ Add the video player to the content where you want the video to appear.
 
 ```{.html}
 <figure>
-<video-js id="final_result" class="vjs-16-9" controls preload="auto" data-setup='{}'>
+<video-js id="final_result" class="vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup='{}'>
 <source src="images/final_result_web.mp4" type='video/mp4'>
 </video-js>
 </figure>
@@ -596,6 +601,12 @@ toc-title: Table Of Contents
 
 [entr](http://eradman.com/entrproject/)
 : Run arbitrary commands when files change.
+
+[git](https://git-scm.com/)
+: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+[GitHub](https://github.com/)
+: GitHub is how people build software.
 
 [Handbrake](https://handbrake.fr/)
 : HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.

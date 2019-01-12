@@ -141,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Static website. No dependencies on webservers, databases, CGI scripts, VMs, etc.</li>
 <li>Long-term support. I don’t want to convert my website to a different framework in a few years.</li>
 </ul>
+<p>My websites are available in <a href="https://github.com/jasonpeacock/websites">GitHub</a> to follow along.</p>
 <section id="style" class="level3">
 <h3>Style</h3>
 <p>I’ve long admired <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <a href="https://www.edwardtufte.com">www.edwardtufte.com</a><br />
@@ -222,8 +223,8 @@ A lesson from 20yrs of software development.
 </footer>
 </blockquote>
 </div>
-<p>The same lesson applies to websites and their content. I’m using <a href="https://git-scm.com/">Git</a> for versioning my websites and content, and <a href="https://github.com/">Github</a> for backup.</p>
-<p>Github is free for personal/public use, and as the website is public it’s OK for the source to also be public. I learned a lot from digging into others’ website repositories, I don’t want to prevent others from learning from my own website repositories.</p>
+<p>The same lesson applies to websites and their content. I’m using <a href="https://git-scm.com/">Git</a> for versioning my websites and content, and <a href="https://github.com/">GitHub</a> for backup.</p>
+<p>GitHub is free for personal/public use, and as the website is public it’s OK for the source to also be public. I learned a lot from digging into others’ website repositories, I don’t want to prevent others from learning from my own website repositories.</p>
 </section>
 <section id="managing-large-files" class="level3">
 <h3>Managing Large Files</h3>
@@ -231,7 +232,7 @@ A lesson from 20yrs of software development.
 <p>I use <a href="https://git-lfs.github.com/"><code>git-lfs</code></a> to push the large files to separate storage<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote"><a href="https://stackoverflow.com/questions/34181356/where-are-git-lfs-files-stored">Where are git-lfs files stored?</a><br />
 <br />
 </span></span> outside of my <code>git</code> repository, and then a reference to that file’s storage location is included in the repository instead.</p>
-<p><code>git-lfs</code> is a bit of black magic, files are stored by default in the Github <em>Large File Storage</em>, wherever that may be – it’s not explained very well. There are some projects that provide alternative locations for large file storage, such as <a href="https://aws.amazon.com/s3/">AWS S3</a>:</p>
+<p><code>git-lfs</code> is a bit of black magic, files are stored by default in the GitHub <em>Large File Storage</em>, wherever that may be – it’s not explained very well. There are some projects that provide alternative locations for large file storage, such as <a href="https://aws.amazon.com/s3/">AWS S3</a>:</p>
 <ul>
 <li><a href="https://github.com/kzwang/node-git-lfs">node-git-lfs</a> (<a href="https://www.imakewebsites.ca/posts/2017/02/08/host-your-own-git-lfs-with-node-lfs-s3/">how-to</a>)</li>
 <li><a href="https://github.com/meltingice/git-lfs-s3">git-lfs-s3</a> (No longer maintained)</li>
@@ -243,7 +244,7 @@ A lesson from 20yrs of software development.
 <li><a href="https://github.com/jedbrown/git-fat">git-fat</a></li>
 <li><a href="https://github.com/lionheart/git-bigstore">git-bigstore</a></li>
 </ul>
-<p>For now, I’m using <code>git-lfs</code> with the default Github storage, later I will examine the alternatives and migrate to using S3 for my large file storage.</p>
+<p>For now, I’m using <code>git-lfs</code> with the default GitHub storage, later I will examine the alternatives and migrate to using S3 for my large file storage.</p>
 </section>
 <section id="markdown" class="level3">
 <h3>Markdown</h3>
@@ -454,7 +455,9 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 <p><span class="newthought">There’s always more</span> to do and room for improvement. Right now, everything is functional and very usable, I am happy with it.</p>
 <section id="containerize-the-tools" class="level3">
 <h3>Containerize the tools</h3>
-<p>There are a few tools and dependencies to install, as hard as I tried to minimize them. It would be awesome to have everything captured in a <code>Dockerfile</code> and runnable in a Docker container.</p>
+<p>There are a few tools and dependencies to install, as hard as I tried to minimize them. It would be awesome to have everything captured in a <code>Dockerfile</code> and runnable in a Docker container<span><label for="sn-20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-20" class="margin-toggle"/><span class="sidenote">An <a href="https://github.com/SilverSoldier/tufte-pandoc-css-docker">existing</a> project that does this already.<br />
+<br />
+</span></span>.</p>
 </section>
 <section id="host-on-s3cloudfront" class="level3">
 <h3>Host on S3/Cloudfront</h3>
@@ -463,7 +466,7 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 </section>
 <section id="store-git-lfs-files-on-s3" class="level3">
 <h3>Store <code>git-lfs</code> files on S3</h3>
-<p>It’s unsettling to use <code>git-lfs</code> and have files stored in an vaguely-documented “github server”. While I’m using Github it makes sense to also use Github for large file storage.</p>
+<p>It’s unsettling to use <code>git-lfs</code> and have files stored in an vaguely-documented “github server”. While I’m using GitHub it makes sense to also use GitHub for large file storage.</p>
 <p>It would be trivial to copy the repo to an S3 bucket, but then I need find a way to redirect <code>git-lfs</code> to also use the same S3 bucket.</p>
 </section>
 <section id="use-a-git-hook-to-automatically-publish" class="level3">
@@ -503,13 +506,13 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 <h3>Epigraphs/blockquotes</h3>
 <p>Epigraphs/blockquotes require a wrapping <code>&lt;div class="epigraph"&gt;</code> tag.</p>
 <p><em>Note: The blank <code>&gt;</code> line between quote and footer is required. Otherwise the blockquote won’t be wrapped in <code>&lt;p&gt;</code> tags and it will not constrain itself to the column width.</em></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" title="1">&lt;div class=&quot;epigraph&quot;&gt;</a>
-<a class="sourceLine" id="cb15-2" title="2">&gt;<span class="dt"> Something insightful.</span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="dt">&gt;</span></a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="dt">&gt; &lt;footer&gt;</span></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="dt">&gt; Who said it.</span></a>
-<a class="sourceLine" id="cb15-6" title="6"><span class="dt">&gt; &lt;/footer&gt;</span></a>
-<a class="sourceLine" id="cb15-7" title="7"><span class="dt">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;epigraph&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2">&gt; Something insightful.</a>
+<a class="sourceLine" id="cb15-3" title="3">&gt;</a>
+<a class="sourceLine" id="cb15-4" title="4">&gt; <span class="kw">&lt;footer&gt;</span></a>
+<a class="sourceLine" id="cb15-5" title="5">&gt; Who said it.</a>
+<a class="sourceLine" id="cb15-6" title="6">&gt; <span class="kw">&lt;/footer&gt;</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 </section>
 <section id="newthought" class="level3">
 <h3>Newthought</h3>
@@ -525,7 +528,7 @@ First content in a page before a header.
 </section>
 <section id="streaming-video" class="level3">
 <h3>Streaming Video</h3>
-<p><a href="https://videojs.com/">VideoJS</a> is used to create an inline, streaming video player<span><label for="sn-20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-20" class="margin-toggle"/><span class="sidenote">I found VideoJS after a quick search, there may be better players but VideoJS was quick to integrate and easy to use.<br />
+<p><a href="https://videojs.com/">VideoJS</a> is used to create an inline, streaming video player<span><label for="sn-21" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-21" class="margin-toggle"/><span class="sidenote">I found VideoJS after a quick search, there may be better players but VideoJS was quick to integrate and easy to use.<br />
 <br />
 </span></span>.</p>
 <p>Add a <code>header-includes</code> attribute to the content <code>YAML</code> header to load the video CSS.</p>
@@ -535,7 +538,7 @@ First content in a page before a header.
 <a class="sourceLine" id="cb18-4" title="4">    ```</a></code></pre></div>
 <p>Add the video player to the content where you want the video to appear.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">&lt;figure&gt;</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw">&lt;video-js</span><span class="ot"> id=</span><span class="st">&quot;final_result&quot;</span><span class="ot"> class=</span><span class="st">&quot;vjs-16-9&quot;</span><span class="ot"> controls preload=</span><span class="st">&quot;auto&quot;</span><span class="ot"> data-setup=</span><span class="st">&#39;{}&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">&lt;video-js</span><span class="ot"> id=</span><span class="st">&quot;final_result&quot;</span><span class="ot"> class=</span><span class="st">&quot;vjs-16-9 vjs-big-play-centered&quot;</span><span class="ot"> controls preload=</span><span class="st">&quot;auto&quot;</span><span class="ot"> data-setup=</span><span class="st">&#39;{}&#39;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb19-3" title="3"><span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;images/final_result_web.mp4&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/mp4&#39;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb19-4" title="4"><span class="kw">&lt;/video-js&gt;</span></a>
 <a class="sourceLine" id="cb19-5" title="5"><span class="kw">&lt;/figure&gt;</span></a></code></pre></div>
@@ -597,6 +600,12 @@ First content in a page before a header.
 <dt><a href="http://eradman.com/entrproject/">entr</a></dt>
 <dd>Run arbitrary commands when files change.
 </dd>
+<dt><a href="https://git-scm.com/">git</a></dt>
+<dd>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+</dd>
+<dt><a href="https://github.com/">GitHub</a></dt>
+<dd>GitHub is how people build software.
+</dd>
 <dt><a href="https://handbrake.fr/">Handbrake</a></dt>
 <dd>HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
 </dd>
@@ -627,7 +636,7 @@ First content in a page before a header.
 </dl>
 </section>
         <footer>
-            Copyright&nbsp;&copy;&nbsp;2016&#8209;2019&nbsp;Jason&nbsp;Peacock All&nbsp;Rights&nbsp;Reserved.&nbsp;| Comments?&nbsp;Email&nbsp;me:&nbsp;<a href="mailto:jason@jasonpeacock.com">jason@jasonpeacock.com</a>&nbsp;
+            Copyright&nbsp;&copy;&nbsp;2016&#8209;2019&nbsp;Jason&nbsp;Peacock All&nbsp;Rights&nbsp;Reserved. Comments?&nbsp;Email&nbsp;me:&nbsp;<a href="mailto:jason@jasonpeacock.com">jason@jasonpeacock.com</a>
         </footer>
         </article>
             </body>
