@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="generator" content="pandoc">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+                        <meta name="dcterms.date" content="2019-01-11">
+                        <title>Markdown Websites</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                        <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+        </style>
+                        <link rel="stylesheet" href="/css/pandoc-solarized.css">
+                <link rel="stylesheet" href="/css/pandoc.css">
+                <link rel="stylesheet" href="/css/tufte-extra.css">
+                <link rel="stylesheet" href="/css/tufte.css">
+                        <!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
+            </head>
+    <body>
+                <article>
+                        <header>
+                <h1 class="title">Markdown Websites</h1>
+                                <p class="subtitle">K.I.S.S.</p>
+                                                <p class="byline">January 11, 2019</p>
+                            </header>
+                                                <nav id="TOC">
+                <h2 class="toc">Table Of Contents</h2>
+                <ul>
+                <li><a href="#introduction">Introduction</a><ul>
+                <li><a href="#style">Style</a></li>
+                <li><a href="#static-site-generators">Static-site generators</a></li>
+                </ul></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#editing">Editing</a><ul>
+                <li><a href="#version-control-and-backup">Version Control and Backup</a></li>
+                <li><a href="#managing-large-files">Managing Large Files</a></li>
+                <li><a href="#markdown">Markdown</a></li>
+                <li><a href="#videos">Videos</a></li>
+                </ul></li>
+                <li><a href="#building">Building</a><ul>
+                <li><a href="#directory-structure">Directory Structure</a></li>
+                <li><a href="#pandoc">Pandoc</a></li>
+                <li><a href="#pandocomatic">Pandocomatic</a></li>
+                </ul></li>
+                <li><a href="#reviewing">Reviewing</a></li>
+                <li><a href="#publishing">Publishing</a></li>
+                <li><a href="#known-issues">Known Issues</a><ul>
+                <li><a href="#definition-lists-are-unsupported">Definition Lists are unsupported</a></li>
+                <li><a href="#code-in-sidenotes-is-too-large">Code in sidenotes is too large</a></li>
+                <li><a href="#figcaptions-are-not-displaying-properly">Figcaptions are not displaying properly</a></li>
+                </ul></li>
+                <li><a href="#improvements">Improvements</a><ul>
+                <li><a href="#containerize-the-tools">Containerize the tools</a></li>
+                <li><a href="#host-on-s3cloudfront">Host on S3/Cloudfront</a></li>
+                <li><a href="#store-git-lfs-files-on-s3">Store <code>git-lfs</code> files on S3</a></li>
+                <li><a href="#use-a-git-hook-to-automatically-publish">Use a <code>git-hook</code> to automatically publish</a></li>
+                </ul></li>
+                <li><a href="#reference">Reference</a><ul>
+                <li><a href="#code-blocks">Code Blocks</a></li>
+                <li><a href="#epigraphsblockquotes">Epigraphs/blockquotes</a></li>
+                <li><a href="#newthought">Newthought</a></li>
+                <li><a href="#sections">Sections</a></li>
+                <li><a href="#streaming-video">Streaming Video</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#table-of-contents">Table of Contents</a></li>
+                </ul></li>
+                <li><a href="#appendix">Appendix</a></li>
+                </ul>
+            </nav>
+                                    <section id="introduction" class="level2">
+<h2>Introduction</h2>
+<p><span class="newthought">This is will be lengthy</span>, but comprehensive. It pulls together everything I’ve learned to build my websites with a workflow that doesn’t suck and provides the level of control and output style that I want.</p>
+<p>I have had many aborted attempts in the past to build and maintain my websites, trying everything from <a href="https://rubyonrails.org/">Ruby on Rails</a> to <a href="https://wordpress.com/">Wordpress</a> to raw <code>HTML</code> files.</p>
+<p>Being a software developer, I want to build my websites the same way that I build software – from the commandline, using version control, with a text editor :)</p>
+<p>My goals are:</p>
+<ul>
+<li>Compose from the commandline. I don’t need online/remote editing capabilities.</li>
+<li>Focus on content. Minimize effort spent on formatting, style, and layout.</li>
+<li>Static website. No dependencies on webservers, databases, CGI scripts, VMs, etc.</li>
+<li>Long-term support. I don’t want to convert my website to a different framework in a few years.</li>
+</ul>
+<section id="style" class="level3">
+<h3>Style</h3>
+<p>I’ve long admired <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <a href="https://www.edwardtufte.com">www.edwardtufte.com</a><br />
+<br />
+</span></span> series of <a href="https://smile.amazon.com/Edward-R.-Tufte/e/B000APET3Y">books abut data visualization</a>.</p>
+<p>I want my websites to have a similar style, and I was not the first person to have that thought. <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a> adapts Tufte’s style to the web using CSS.</p>
+</section>
+<section id="static-site-generators" class="level3">
+<h3>Static-site generators</h3>
+<p>I looked at many existing static-site generators (<a href="https://jekyllrb.com/">Jekyll</a>, <a href="http://hyde.github.io/">Hyde</a>, <a href="https://blog.getpelican.com/">Pelican</a>, <a href="https://gohugo.io/">Hugo</a>, and even <a href="https://www.gitbook.com">Gitbook</a>). While they each had their strengths, they also had various drawbacks:</p>
+<ul>
+<li>Proprietary layouts/formatting hooks.</li>
+<li>Difficult to extend to support Tufte CSS’s features<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">There is now a <a href="https://github.com/jez/tufte-pandoc-jekyll">Tufte Jekyll</a> theme available.<br />
+<br />
+</span></span> (e.g. margin notes).</li>
+<li>Written in a language I don’t know (in case I have to extend its functionality).</li>
+<li>They were all relatively new – will they still be around in 5yrs?</li>
+<li>Required too many dependencies to install.</li>
+</ul>
+<p>Most of these are minor or irrelevant issues for most people, but I’m doing this for myself so I get to make the rules :)</p>
+<p>I’ll be assembling a set of tools to do my own static-site generation<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">That’s what the rest of the page describes.<br />
+<br />
+</span></span>.</p>
+</section>
+</section>
+<section id="workflow" class="level2">
+<h2>Workflow</h2>
+<p><span class="newthought">My ideal workflow</span> is very straightforward:</p>
+<ol type="1">
+<li>Write content in <code>markdown</code>.</li>
+<li>Build a local version of the website.
+<ul>
+<li>It should look/act the same as the online version.</li>
+</ul></li>
+<li>Review the local website.</li>
+<li>Publish the website.</li>
+</ol>
+<p>It doesn’t get much simpler<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">I could extend the wrapper to include the webserver and monitoring commands, and automatically publish using a git hook…<br />
+<br />
+</span></span>. Below is the actual workflow, the rest of this page explains how all the parts come together to support this workflow.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Go to my local websites `git` repo.</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">cd</span> ~/workplace/websites</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co"># Launch a local webserver in the background, then</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co"># open http://localhost:8000 in my browser.</span></a>
+<a class="sourceLine" id="cb1-6" title="6">python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co"># Monitor the markdown content for changes and</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co"># automatically rebuild the website.</span></a>
+<a class="sourceLine" id="cb1-10" title="10">rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co"># Edit content, save changes, and review the results when I</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co"># reload the browser tab.</span></a>
+<a class="sourceLine" id="cb1-14" title="14">vim jasonpeacock.markdown/content/index.md</a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co"># Publish to my webhost.</span></a>
+<a class="sourceLine" id="cb1-17" title="17">./website-publish jasonpeacock.com</a>
+<a class="sourceLine" id="cb1-18" title="18"></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co"># Commit and push the website changes.</span></a>
+<a class="sourceLine" id="cb1-20" title="20">git add -A <span class="kw">&amp;&amp;</span> git commmit -m <span class="st">&quot;updated website&quot;</span> <span class="kw">&amp;&amp;</span> git push</a></code></pre></div>
+</section>
+<section id="editing" class="level2">
+<h2>Editing</h2>
+<p><span class="newthought">As a software developer</span>, I spend a lot of time typing at the commandline, that’s where I’m the most comfortable. My fingers are well-trained with shell shortcuts and Vim<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">It’s actually <a href="https://neovim.io/">Neovim</a>.<br />
+<br />
+</span></span> commands; my terminals are solarized<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote"><a href="https://ethanschoonover.com/solarized/">Solarized</a> terminal &amp; editor colors.<br />
+<br />
+</span></span> and multiplexed<span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote"><a href="https://github.com/tmux/tmux/wiki">tmux</a> terminal multiplexer.<br />
+<br />
+</span></span>.</p>
+<p>Thus it follows that when I’m writing and editing website content, I am using a text editor within a terminal, and my workflow is optimized for that use case.</p>
+<section id="version-control-and-backup" class="level3">
+<h3>Version Control and Backup</h3>
+<div class="epigraph">
+<blockquote>
+<p>Everything should be backed up and versioned.</p>
+<footer>
+A lesson from 20yrs of software development.
+</footer>
+</blockquote>
+</div>
+<p>The same lesson applies to websites and their content. I’m using <a href="https://git-scm.com/">Git</a> for versioning my websites and content, and <a href="https://github.com/">Github</a> for backup.</p>
+<p>Github is free for personal/public use, and as the website is public it’s OK for the source to also be public. I learned a lot from digging into others’ website repositories, I don’t want to prevent others from learning from my own website repositories.</p>
+</section>
+<section id="managing-large-files" class="level3">
+<h3>Managing Large Files</h3>
+<p>Website have more content than just text, there are images, videos, PDFs, <code>zip</code> and <code>tar</code> downloads, and other large files. <code>git</code> does not handle large files efficiently so we cannot include those files directly in the repository.</p>
+<p>I use <a href="https://git-lfs.github.com/"><code>git-lfs</code></a> to push the large files to separate storage<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote"><a href="https://stackoverflow.com/questions/34181356/where-are-git-lfs-files-stored">Where are git-lfs files stored?</a><br />
+<br />
+</span></span> outside of my <code>git</code> repository, and then a reference to that file’s storage location is included in the repository instead.</p>
+<p><code>git-lfs</code> is a bit of black magic, files are stored by default in the Github <em>Large File Storage</em>, wherever that may be – it’s not explained very well. There are some projects that provide alternative locations for large file storage, such as <a href="https://aws.amazon.com/s3/">AWS S3</a>:</p>
+<ul>
+<li><a href="https://github.com/kzwang/node-git-lfs">node-git-lfs</a> (<a href="https://www.imakewebsites.ca/posts/2017/02/08/host-your-own-git-lfs-with-node-lfs-s3/">how-to</a>)</li>
+<li><a href="https://github.com/meltingice/git-lfs-s3">git-lfs-s3</a> (No longer maintained)</li>
+</ul>
+<p>There are also alternatives to using <code>git-lfs</code> for managing large files:</p>
+<ul>
+<li><a href="https://github.com/alebedev/git-media">git-media</a></li>
+<li><a href="http://git-annex.branchable.com/">git-annex</a></li>
+<li><a href="https://github.com/jedbrown/git-fat">git-fat</a></li>
+<li><a href="https://github.com/lionheart/git-bigstore">git-bigstore</a></li>
+</ul>
+<p>For now, I’m using <code>git-lfs</code> with the default Github storage, later I will examine the alternatives and migrate to using S3 for my large file storage.</p>
+</section>
+<section id="markdown" class="level3">
+<h3>Markdown</h3>
+<p>I use <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> to write the content. It’s simple, widely supported<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">There are some <a href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">valid concerns</a> about using Markdown, maybe another markup language should be used?<br />
+<br />
+</span></span>, extensible when needed (insert <code>HTML</code> as required), and limited in functionality.</p>
+<p>Why is limited functionality good? Because it keeps you focused on writing content and not layout. But strict markdown can be too limited – what about <del>strikeout</del>? Or <sup>super</sup> and <sub>sub</sub> script?</p>
+<p>Avoiding distraction from formatting is admirable, but to communicate effectively you need to apply formatting appropriately. There are many markdown flavors<span><label for="sn-10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-10" class="margin-toggle"/><span class="sidenote">At least <a href="https://github.com/commonmark/commonmark/wiki/markdown-flavors">34</a>.<br />
+<br />
+</span></span> available that extend the original syntax.</p>
+<p>I am using the <a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> flavor, as I am using <a href="http://pandoc.org/">Pandoc</a> to build my websites. This supports generating other, non-<code>HTML</code> output formats as Pandoc will better understand the original content.</p>
+</section>
+<section id="videos" class="level3">
+<h3>Videos</h3>
+<p><code>MP4</code> is a widely-supported video format for the web, but the native <code>MP4</code> videos from your cellphone are way too large to use – 140Mb for ~15 seconds – they need to be optimized for the web. There a number of technical concerns<span><label for="sn-11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-11" class="margin-toggle"/><span class="sidenote"><a href="https://rigor.com/blog/2016/01/optimizing-mp4-video-for-fast-streaming">Optimizing MP4 Video for Fast Streaming</a>.<br />
+<br />
+</span></span> involved with web-optimizing videos, I use <a href="https://handbrake.fr/">Handbrake</a> to do everything in one pass.</p>
+<p>Within <code>Handbrake</code>, just select the <code>Vimeo Youtube 720p30</code> preset and you’re done<span><label for="sn-12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-12" class="margin-toggle"/><span class="sidenote">The preset <a href="https://handbrake.fr/docs/en/latest/advanced/web-optimised.html">includes</a> web optimization.<br />
+<br />
+</span></span>. That 140Mb file will now be &lt;5Mb and optimized for web streaming. There are additional options to resize, reduce quality, and remove audio if you need a smaller file.</p>
+</section>
+</section>
+<section id="building" class="level2">
+<h2>Building</h2>
+<p><span class="newthought">Somehow</span>, the markdown content needs to be converted into a stylish, functional website. This is what static-site generators do, and what I need to replicate.</p>
+<p>Instead of a <em>site generator</em>, I chose to use a <em>document converter</em> instead. The difference is that each page of content is converted into an <code>HTML</code> document independently; my websites are really a collection of <code>HTML</code> documents.</p>
+<p>The drawback is that I need to manually maintain index pages and any links between pages. Using an actual static-site generator would understand the relationship between pages and provide extended syntax to generate links, index pages, lists of “recently updated”, and other blog-like features. I feel the reduction in complexity and framework is worth this overhead as I don’t use those missing features.</p>
+<p>One advantage of this approach is that because each page of content is independent it can be easily converted to <em>any</em> document format – <code>HTML</code>, <code>PDF</code>, <code>LaTeX</code>, etc<span><label for="sn-13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-13" class="margin-toggle"/><span class="sidenote">I haven’t actually tried converting my content to PDF yet. But theoretically, I could.<br />
+<br />
+</span></span>.</p>
+<section id="directory-structure" class="level3">
+<h3>Directory Structure</h3>
+<p>The website content is organized into separate directory trees for each website. Each directory includes the <code>markdown</code> content pages as well as a <code>resources/</code> directory with the typical web resources (CSS, JS, etc) and a <code>pandocomatic/</code> directory that configures how the website is built.</p>
+<pre><code>jasonpeacock.markdown/
+    content/
+        index.md
+        projects/
+            index.md
+            markdown-websites/
+                index.md
+            another-project/
+                index.md
+                images/
+                    my_image.jpg
+    pandocomatic/
+        pandocomatic.yaml
+        tufte.html5
+        postprocessors/
+            tidy.sh
+    resources/
+        .htaccess
+        favicon.ico
+        css/
+            pandoc.css
+            pandoc-solarized.css
+            tufte.css
+            tufte-extra.css
+            et-book/
+                ...
+        js/
+            ...</code></pre>
+<p>The content is converted into <code>HTML</code> documents and copied into a new directory tree, with non-content files copied as-is. The contents of the <code>resources/</code> directory are copied into the root of the directory tree, while the <code>pandocomatic/</code> directory is excluded.</p>
+<pre><code>jasonpeacock.com/
+    .htaccess
+    favicon.ico
+    index.html
+    projects/
+        index.html
+        markdown-websites/
+            index.html
+        another-project/
+            index.html
+            images/
+                my_image.jpg
+    css/
+        pandoc.css
+        pandoc-solarized.css
+        tufte.css
+        tufte-extra.css
+        et-book/
+            ...
+    js/
+        ...</code></pre>
+</section>
+<section id="pandoc" class="level3">
+<h3>Pandoc</h3>
+<p>I use <a href="http://pandoc.org/">Pandoc</a> to do the document conversion from <code>markdown</code> to <code>HTML</code> format<span><label for="sn-14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-14" class="margin-toggle"/><span class="sidenote">Pandoc supports <a href="http://pandoc.org/MANUAL.html#options">a lot</a> of input &amp; output formats.<br />
+<br />
+</span></span>. I don’t want to use anything written in a programming language that I don’t know<span><label for="sn-15" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-15" class="margin-toggle"/><span class="sidenote">Pandoc is written in Haskell.<br />
+<br />
+</span></span>, but <code>pandoc</code> is a tool and not a framework – I’ll be using it <em>within</em> a framework.</p>
+<p>When converting from <code>markdown</code> to <code>HTML</code>, a template can be provided. For <code>HTML</code>, this is essential as it provides the boilerplate that a webpage needs but is not included in the content page, or would be redundant to include in every content page<span><label for="sn-16" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-16" class="margin-toggle"/><span class="sidenote">E.g. the copyright notice footer.<br />
+<br />
+</span></span>.</p>
+<p>For my websites, that template is <a href="https://github.com/jasonpeacock/websites/blob/master/jasonpeacock.markdown/pandocomatic/tufte.html5"><code>tufte.html5</code></a>, adapted from <a href="https://github.com/jez/tufte-pandoc-css">tufte-pandoc-css</a>.</p>
+<p>The template is too large to reproduce here; it uses the Pandoc template language to pull metadata from the content pages and generate <code>HTML</code> with all the proper tags, including <code>&lt;header&gt;</code> links for CSS and scripts. Then it injects the converted content and outputs the completed <code>HTML</code> document.</p>
+</section>
+<section id="pandocomatic" class="level3">
+<h3>Pandocomatic</h3>
+<div class="epigraph">
+<blockquote>
+<p>Pandocomatic is a tool to automate the use of pandoc. With pandocomatic you can express common patterns of using pandoc for generating your documents. Applied to a directory, pandocomatic can act as a static site generator.</p>
+<footer>
+Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#introduction">Pandocomatic</a>
+</footer>
+</blockquote>
+</div>
+<p>I use Pandocomatic<span><label for="sn-17" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-17" class="margin-toggle"/><span class="sidenote">Pandocomatic is written in Ruby, which I am familiar with.<br />
+<br />
+</span></span> to recursively traverse my website content directory tree and invoke <code>pandoc</code> to convert all the content pages from <code>markdown</code> to <code>HTML</code>.</p>
+<p>Pandocomatic is quite flexible through the use of <code>YAML</code> templates, it’s worth reading the <a href="https://heerdebeer.org/Software/markdown/pandocomatic/">docs</a> to understand everything that is possible.</p>
+<p>For my websites, that Pandocomatic <code>YAML</code> configuration is <a href="https://github.com/jasonpeacock/websites/blob/master/jasonpeacock.markdown/pandocomatic/pandocomatic.yaml">pandocomatic.yaml</a>. An example is below.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">settings:</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="fu">recursive:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="fu">follow-links:</span><span class="at"> </span><span class="ch">false</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="fu">skip:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;.*&#39;</span><span class="kw">,</span> <span class="st">&#39;pandocomatic.yaml&#39;</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="fu">templates:</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="fu">blog:</span></a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="fu">glob:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;*.md&#39;</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb4-8" title="8">        <span class="fu">setup:</span><span class="at"> </span><span class="kw">[]</span></a>
+<a class="sourceLine" id="cb4-9" title="9">        <span class="fu">preprocessors:</span><span class="at"> </span><span class="kw">[]</span></a>
+<a class="sourceLine" id="cb4-10" title="10">        <span class="fu">pandoc:</span></a>
+<a class="sourceLine" id="cb4-11" title="11">            <span class="fu">css:</span></a>
+<a class="sourceLine" id="cb4-12" title="12">                <span class="kw">-</span> /css/pandoc-solarized.css</a>
+<a class="sourceLine" id="cb4-13" title="13">                <span class="kw">-</span> /css/pandoc.css</a>
+<a class="sourceLine" id="cb4-14" title="14">                <span class="kw">-</span> /css/tufte-extra.css</a>
+<a class="sourceLine" id="cb4-15" title="15">                <span class="kw">-</span> /css/tufte.css</a>
+<a class="sourceLine" id="cb4-16" title="16">            <span class="fu">filter:</span><span class="at"> pandoc-sidenote</span></a>
+<a class="sourceLine" id="cb4-17" title="17">            <span class="fu">from:</span><span class="at"> markdown+implicit_header_references</span></a>
+<a class="sourceLine" id="cb4-18" title="18">            <span class="fu">section-divs:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb4-19" title="19">            <span class="fu">template:</span><span class="at"> tufte.html5</span></a>
+<a class="sourceLine" id="cb4-20" title="20">            <span class="fu">to:</span><span class="at"> html5+smart</span></a>
+<a class="sourceLine" id="cb4-21" title="21">            <span class="fu">toc:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb4-22" title="22">        <span class="fu">postprocessors:</span></a>
+<a class="sourceLine" id="cb4-23" title="23">            <span class="kw">-</span> postprocessors/tidy.sh</a>
+<a class="sourceLine" id="cb4-24" title="24">        <span class="fu">cleanup:</span><span class="at"> </span><span class="kw">[]</span></a></code></pre></div>
+<p>In brief, the configuration above recursively scans for all <code>*.md</code> files and invokes <code>pandoc</code> with the given <code>css</code> files, template, filter, etc, and converts to <code>html5+smart</code> format. After conversion, the <code>tidy.sh</code> post-processor is run to cleanup the <code>HTML</code> document formatting.</p>
+<p>To run <code>pandocomatic</code>, you need to provide the content, configuration, and output directories.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb5-1" title="1">pandocomatic <span class="kw">\</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    --quiet <span class="kw">\</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    --data-dir <span class="st">&quot;./jasonpeacock.markdown/pandocomatic&quot;</span> <span class="kw">\</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    --input <span class="st">&quot;./jasonpeacock.markdown/content&quot;</span> <span class="kw">\</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    --output <span class="st">&quot;./jasonpeacock.com&quot;</span></a></code></pre></div>
+<p>To simplify this, I’ve written a wrapper script <a href="https://github.com/jasonpeacock/websites/blob/master/website-generate"><code>website-generate</code></a>. It takes the name of the website (<code>jasonpeacock.com</code>) as a parameter, then will look for a matching <code>jasonpeacock.markdown</code> directory to convert the content from.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb6-1" title="1">./website-generate jasonpeacock.com</a></code></pre></div>
+<p>It also copies the contents of <code>jasonpeacock.markdown/resources/</code> into the root of the new website <code>jasonpeacock.com/</code> directory, resulting in a complete, static website at <code>jasonpeacock.com/</code>.</p>
+<p>To automatically rebuild the website after every edit, the <a href="http://eradman.com/entrproject/"><code>entr</code></a> tool is used to watch all files in the website directory.</p>
+<p><span><label for="sn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-18" class="margin-toggle"/><span class="marginnote"><code>rg</code> is <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>, a super-powered <code>grep</code> replacement.<br />
+<br />
+</span></span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb7-1" title="1">rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</a></code></pre></div>
+</section>
+</section>
+<section id="reviewing" class="level2">
+<h2>Reviewing</h2>
+<p><span class="newthought">After the website is built</span> it needs to be reviewed. Unfortunately, merely viewing the <code>index.html</code> file in your browser is not enough to load the CSS and other required resources.</p>
+<p>The simplest approach is to use one of the built-in webservers from Python, Ruby, etc. and load the page at: <a href="http://localhost:8000/">http://localhost:8000/</a></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Python 3</span></a>
+<a class="sourceLine" id="cb8-2" title="2">python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></a></code></pre></div>
+<p>The website should display correctly with the Tufte CSS style and all images, videos, links, etc working.</p>
+</section>
+<section id="publishing" class="level2">
+<h2>Publishing</h2>
+<p><span class="newthought">Rsync everything</span> to the webhost. It’s good practice to only have one source of authority for anything, that includes website content.</p>
+<p>After the website has been built from the content and reviewed it should be pushed directly to the webhost and overwrite anything that’s already there, because you know that your local<span><label for="sn-19" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-19" class="margin-toggle"/><span class="sidenote">Obviously this is not true when working in a distributed environment with other authors, but my websites don’t have to worry about that because I am the only author.<br />
+<br />
+</span></span> content is the single source of authority.</p>
+<p>The <code>rysnc</code> command is configured to be efficient, only pushing files and attributes that have changed, and removing remote files that are no longer relevant. The webhost is already configured for passwordless-ssh.</p>
+<p>An example <code>rsync</code> configuration is below.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb9-1" title="1">rsync <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-2" title="2">    --checksum <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    --compress <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    --delay-updates <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-5" title="5">    --delete <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-6" title="6">    --delete-after <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-7" title="7">    --force <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    --human-readable <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-9" title="9">    --links <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-10" title="10">    --perms <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-11" title="11">    --progress <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-12" title="12">    --recursive <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-13" title="13">    --safe-links <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-14" title="14">    --stats <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-15" title="15">    <span class="st">&quot;jasonpeacock.com&quot;</span> <span class="kw">\</span></a>
+<a class="sourceLine" id="cb9-16" title="16">    <span class="st">&quot;my_user@jasonpeacock.com:/home/my_user&quot;</span></a></code></pre></div>
+<p>To simplify this, I’ve written a wrapper script <a href="https://github.com/jasonpeacock/websites/blob/master/website-publish"><code>website-publish</code></a>. It takes the name of the website (<code>jasonpeacock.com</code>) as a parameter and <code>rysnc</code>’s the website directory to the webhost.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb10-1" title="1">./website-publish jasonpeacock.com</a></code></pre></div>
+</section>
+<section id="known-issues" class="level2">
+<h2>Known Issues</h2>
+<p><span class="newthought">I’ll be filing issues and PRs</span> for these issues that I’ve discovered. There were originally more known issues, but with some investigation I found that they were already known (and working “as designed”), or were due to mistakes by myself :) It’s possible these remaining issues are also due to my own mistakes.</p>
+<section id="definition-lists-are-unsupported" class="level3">
+<h3>Definition Lists are unsupported</h3>
+<p>I had to add support to Tufte CSS for <code>&lt;dl&gt;</code>, <code>&lt;di&gt;</code>, and <code>&lt;dd&gt;</code>.</p>
+</section>
+<section id="code-in-sidenotes-is-too-large" class="level3">
+<h3>Code in sidenotes is too large</h3>
+<p>When using inline-literals (“code”, via backticks) in sidenotes the font size is too large.</p>
+</section>
+<section id="figcaptions-are-not-displaying-properly" class="level3">
+<h3>Figcaptions are not displaying properly</h3>
+<p>I had to fix the Tufte CSS for <code>&lt;figcaption&gt;</code> to display properly as a sidenote.</p>
+<p>They are still slightly broken and require at least 1 sidenote to exist in the page to display properly.</p>
+</section>
+</section>
+<section id="improvements" class="level2">
+<h2>Improvements</h2>
+<p><span class="newthought">There’s always more</span> to do and room for improvement. Right now, everything is functional and very usable, I am happy with it.</p>
+<section id="containerize-the-tools" class="level3">
+<h3>Containerize the tools</h3>
+<p>There are a few tools and dependencies to install, as hard as I tried to minimize them. It would be awesome to have everything captured in a <code>Dockerfile</code> and runnable in a Docker container.</p>
+</section>
+<section id="host-on-s3cloudfront" class="level3">
+<h3>Host on S3/Cloudfront</h3>
+<p>Save money by hosting on S3 and only pay for the actual bandwidth used. Currently I use a webhost, whom I have no complaints about, but it’s excessive to have a whole VM that just serves static files.</p>
+<p>Also look into using Cloudfront to cache the static pages for even faster pageloads and lower bandwidth.</p>
+</section>
+<section id="store-git-lfs-files-on-s3" class="level3">
+<h3>Store <code>git-lfs</code> files on S3</h3>
+<p>It’s unsettling to use <code>git-lfs</code> and have files stored in an vaguely-documented “github server”. While I’m using Github it makes sense to also use Github for large file storage.</p>
+<p>It would be trivial to copy the repo to an S3 bucket, but then I need find a way to redirect <code>git-lfs</code> to also use the same S3 bucket.</p>
+</section>
+<section id="use-a-git-hook-to-automatically-publish" class="level3">
+<h3>Use a <code>git-hook</code> to automatically publish</h3>
+<p>Publishing the website and pushing to Git are separate operations, which can lead to various out-of-sync states.</p>
+<p>A <code>git-hook</code> would not only automate this process to ensure everything is always in sync, it would also enforce VCS best practices, such as not committing half-completed changes to <code>master</code> - a branch should be used instead. And don’t publish from branches.</p>
+</section>
+</section>
+<section id="reference" class="level2">
+<h2>Reference</h2>
+<p><span class="newthought">Where possible</span>, it is best to avoid <code>HTML</code> and use native Pandoc Markdown to support as many output formats as possible. Some features of Tufte CSS do require <code>HTML</code>, like wrapping tables and videos in <code>&lt;figure&gt;</code> tags.</p>
+<p>Full documentation is available from the <a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> manual, the examples below are included for convenience or to capture notes about non-obvious behavior.</p>
+<section id="code-blocks" class="level3">
+<h3>Code Blocks</h3>
+<p>Syntax-highlighted code.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="va">self</span>.arg <span class="op">=</span> arg</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
+<p> </p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb12-1" title="1"><span class="bn">    ```{.python}</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="bn">    def funtion(self, *, arg):</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="bn">      self.arg = arg</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="bn">      return True</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="bn">    ```</span></a></code></pre></div>
+<p>Syntax-highlighted code with line numbers.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="va">self</span>.arg <span class="op">=</span> arg</a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
+<p> </p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb14-1" title="1"><span class="bn">    ```{.python .numberLines}</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="bn">    def funtion(self, *, arg):</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="bn">      self.arg = arg</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="bn">      return True</span></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="bn">    ```</span></a></code></pre></div>
+</section>
+<section id="epigraphsblockquotes" class="level3">
+<h3>Epigraphs/blockquotes</h3>
+<p>Epigraphs/blockquotes require a wrapping <code>&lt;div class="epigraph"&gt;</code> tag.</p>
+<p><em>Note: The blank <code>&gt;</code> line between quote and footer is required. Otherwise the blockquote won’t be wrapped in <code>&lt;p&gt;</code> tags and it will not constrain itself to the column width.</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" title="1">&lt;div class=&quot;epigraph&quot;&gt;</a>
+<a class="sourceLine" id="cb15-2" title="2">&gt;<span class="dt"> Something insightful.</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="dt">&gt; &lt;footer&gt;</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="dt">&gt; Who said it.</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="dt">&gt; &lt;/footer&gt;</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="dt">&lt;/div&gt;</span></a></code></pre></div>
+</section>
+<section id="newthought" class="level3">
+<h3>Newthought</h3>
+<p><span class="newthought">A newthought</span> starting a new section.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb16-1" title="1">[A newthought]{.newthought} starting a new section.</a></code></pre></div>
+</section>
+<section id="sections" class="level3">
+<h3>Sections</h3>
+<p>Any content that appears before the first header needs to be manually wrapped in a <code>&lt;section&gt;</code> tag.</p>
+<pre><code>&lt;section&gt;
+First content in a page before a header.
+&lt;/section&gt;</code></pre>
+</section>
+<section id="streaming-video" class="level3">
+<h3>Streaming Video</h3>
+<p><a href="https://videojs.com/">VideoJS</a> is used to create an inline, streaming video player<span><label for="sn-20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-20" class="margin-toggle"/><span class="sidenote">I found VideoJS after a quick search, there may be better players but VideoJS was quick to integrate and easy to use.<br />
+<br />
+</span></span>.</p>
+<p>Add a <code>header-includes</code> attribute to the content <code>YAML</code> header to load the video CSS.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb18-1" title="1"><span class="fu">header-includes:</span> <span class="st">|</span></a>
+<a class="sourceLine" id="cb18-2" title="2">    ```{=html}</a>
+<a class="sourceLine" id="cb18-3" title="3">    &lt;link href=&quot;https://vjs.zencdn.net/7.4.1/video-js.css&quot; rel=&quot;stylesheet&quot;&gt;</a>
+<a class="sourceLine" id="cb18-4" title="4">    ```</a></code></pre></div>
+<p>Add the video player to the content where you want the video to appear.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">&lt;figure&gt;</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">&lt;video-js</span><span class="ot"> id=</span><span class="st">&quot;final_result&quot;</span><span class="ot"> class=</span><span class="st">&quot;vjs-16-9&quot;</span><span class="ot"> controls preload=</span><span class="st">&quot;auto&quot;</span><span class="ot"> data-setup=</span><span class="st">&#39;{}&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;images/final_result_web.mp4&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/mp4&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="kw">&lt;/video-js&gt;</span></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="kw">&lt;/figure&gt;</span></a></code></pre></div>
+<p>Load the video player script at the end of the content.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb20-1" title="1"><span class="co">&lt;!-- Load JS last after page load for best UX --&gt;</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://vjs.zencdn.net/7.4.1/video.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+</section>
+<section id="tables" class="level3">
+<h3>Tables</h3>
+<p>Tables should always be wrapped with <code>&lt;figure&gt;</code> tags to ensure they are sized and re-flow correctly.</p>
+<p>A full-width table with headers.</p>
+<figure class="fullwidth">
+<table>
+<thead>
+<tr class="header">
+<th>Col 1</th>
+<th>Col 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>some content</td>
+<td>more content</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb21-1" title="1">&lt;figure class=&quot;fullwidth&quot;&gt;</a>
+<a class="sourceLine" id="cb21-2" title="2">|Col 1 |Col 2|</a>
+<a class="sourceLine" id="cb21-3" title="3">|-|-|</a>
+<a class="sourceLine" id="cb21-4" title="4">|some content|more content|</a>
+<a class="sourceLine" id="cb21-5" title="5">&lt;/figure&gt;</a></code></pre></div>
+<p>A full-width table without headers.</p>
+<figure class="fullwidth">
+<table>
+<tbody>
+<tr class="odd">
+<td>some content</td>
+<td>more content</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb22-1" title="1">&lt;figure class=&quot;fullwidth&quot;&gt;</a>
+<a class="sourceLine" id="cb22-2" title="2">|||</a>
+<a class="sourceLine" id="cb22-3" title="3">|-|-|</a>
+<a class="sourceLine" id="cb22-4" title="4">|some content|more content|</a>
+<a class="sourceLine" id="cb22-5" title="5">&lt;/figure&gt;</a></code></pre></div>
+</section>
+<section id="table-of-contents" class="level3">
+<h3>Table of Contents</h3>
+<p>Include a <code>toc-title</code> attribute in the <code>YAML</code> header to automatically generate a table of contents at the top of the page.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb23-1" title="1"><span class="fu">toc-title:</span><span class="at"> Table Of Contents</span></a></code></pre></div>
+</section>
+</section>
+<section id="appendix" class="level2">
+<h2>Appendix</h2>
+<dl>
+<dt><a href="http://eradman.com/entrproject/">entr</a></dt>
+<dd>Run arbitrary commands when files change.
+</dd>
+<dt><a href="https://handbrake.fr/">Handbrake</a></dt>
+<dd>HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
+</dd>
+<dt><a href="https://pandoc.org">Pandoc</a></dt>
+<dd>If you need to convert files from one markup format into another, <code>pandoc</code> is your swiss-army knife.
+</dd>
+<dt><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a></dt>
+<dd>Pandoc understands an extended and slightly revised version of John Gruber’s Markdown syntax.
+</dd>
+<dt><a href="https://github.com/jez/pandoc-sidenote">pandoc-sidenote</a></dt>
+<dd>Convert Pandoc Markdown-style footnotes into sidenotes.
+</dd>
+<dt><a href="https://heerdebeer.org/Software/markdown/pandocomatic/">Pandocomatic</a></dt>
+<dd>Automating the use of pandoc.
+</dd>
+<dt><a href="https://rsync.samba.org/">rsync</a></dt>
+<dd><code>rsync</code> is an open source utility that provides fast incremental file transfer.
+</dd>
+<dt><a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a></dt>
+<dd>Tufte CSS provides tools to style web articles using the ideas demonstrated by Edward Tufte’s books and handouts.
+</dd>
+<dt><a href="https://github.com/jez/tufte-pandoc-css">Tufte Pandoc CSS</a></dt>
+<dd>Starter files for using Pandoc Markdown with Tufte CSS.
+</dd>
+<dt><a href="https://videojs.com/">VideoJS</a></dt>
+<dd>Video.js is an open source library for working with video on the web, also known as an HTML video player.
+</dd>
+</dl>
+</section>
+        <footer>
+            Copyright&nbsp;&copy;&nbsp;2016&#8209;2019&nbsp;Jason&nbsp;Peacock All&nbsp;Rights&nbsp;Reserved.&nbsp;| Comments?&nbsp;Email&nbsp;me:&nbsp;<a href="mailto:jason@jasonpeacock.com">jason@jasonpeacock.com</a>&nbsp;
+        </footer>
+        </article>
+            </body>
+</html>

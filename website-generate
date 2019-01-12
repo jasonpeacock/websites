@@ -45,4 +45,4 @@ declare -r end_time
 ((elapsed_time = end_time - start_time))
 declare -r elapsed_time
 
-echo >&2 "Website updated in [${elapsed_time}] seconds"
+echo "Website updated in [${elapsed_time}] seconds"

@@ -13,7 +13,7 @@ header-includes: |
 
 ![The final result. [Look closely](images/final_result_square_full.jpg), you can see the button square in the fingertip.](images/final_result_square_full.jpg)
 
-I dislike having to dance around my desk in my office/cube so I usually place it against the wall. This leaves me facing the wall with my back to the rest of the office, which I don't mind, but it's difficult for others to get my attention when I have my headphones on.
+[I dislike having to dance around my desk]{.newthought} in my cube, so I usually place it against the wall. This leaves me facing the wall with my back to the rest of the office, which I don't mind, but it's difficult for others to get my attention when I have my headphones on.
 
 Instead of forcing others to tap me on the shoulder, or awkwardly reach around me to knock on my desk to get my attention[^standing_there], I thought a doorbell that flashes a light would be convenient. It needed to be a silent as I work in an open-office[^open_office] floor plan.
 
@@ -152,7 +152,7 @@ Hot glue is sticky, non-conductive, and insulating. I also used it to secure the
 
 ## Final Result
 
-Putting everything back together, it works! Silent, wireless operation with an obvious sign and flashing lights.
+[Putting everything back together]{.newthought}, it works! Silent, wireless operation with an obvious sign and flashing lights.
 
 <figure>
 <video-js id="final_result" class="vjs-16-9" controls preload="auto" data-setup='{}'>
@@ -162,7 +162,7 @@ Putting everything back together, it works! Silent, wireless operation with an o
 
 ## Lessons Learned, Feedback, and Improvements
 
-I'd have liked to use a fancier button, something like [this](https://www.adafruit.com/product/481), which would have fit in the center circle of the sign perfectly, but illuminated buttons require more power and I'd have to connect a power supply. And it would be much deeper, requiring a standoff mount. In the end, simpler is better.
+[I'd have liked to use a fancier button]{.newthought}, something like [this](https://www.adafruit.com/product/481), which would have fit in the center circle of the sign perfectly, but illuminated buttons require more power and I'd have to connect a power supply. And it would be much deeper, requiring a standoff mount. In the end, simpler is better.
 
 <!-- Load JS last after page load for best UX -->
 <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>

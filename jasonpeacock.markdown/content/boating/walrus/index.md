@@ -12,28 +12,33 @@ date: 'January 9, 2019'
 
 ### Dimensions
 
+<figure class="fullwidth">
 |||
 |-|-|
 |Length (hull)|22' 8"|
-|Length rugged (LOA)|27' 8"|
+|Length rigged (LOA)|27' 8"|
 |Beam|8' 6"|
 |Draft (motor down)|30"|
 |Draft (motor up)|19"|
 |Depth|5'|
 |Gross/Net Tonnage|6.5 tons|
 |Weight, dry w/motor|5,000lbs|
+</figure>
 
 ### Electronics
 
+<figure class="fullwidth">
 |||
 |-|-|
 |Autopilot|[Garmin GHC 20](https://buy.garmin.com/en-US/US/p/126695)|
 |GPS|[Garmin GPSMAP 7612xsv](https://buy.garmin.com/en-US/US/p/169210)|
 |VHF radio|[Standard Horizon GX1600](http://www.standardhorizon.com/indexVS.cfm?cmd=DisplayProducts&ProdCatID=83&encProdID=1BFCB309CEE0FEE9385740D0F23313FA&DivisionID=3&isArchived=0)|
 |FM radio|Dual|
+</figure>
 
 ### Power
 
+<figure class="fullwidth">
 |||
 |-|-|
 |DC power (12V)|2x House batteries<br/>1x Engine battery<br/>1x Bow thruster battery|
@@ -41,11 +46,14 @@ date: 'January 9, 2019'
 |Battery charger|[ProMariner ProNautic 12XXP](http://www.promariner.com/en/products/dry-mount-chargers) with [remote](http://www.promariner.com/en/63100)
 |Outboard power|[Yamaha F200](https://yamahaoutboards.com/en-us/home/outboards/350-150-hp/v6-3-3l) with [6YC Information Station](https://www.simyamaha.com/6YC_INFORMATION_STATION_s/7706.htm) display|
 |Bow thruster|[Lewmar TT Electric Thruster 110TT 2.0](https://www.lewmar.com/node/12176?v=25948)|
+</figure>
 
 ### Tanks
 
+<figure class="fullwidth">
 |||
 |-|-|
 |Fuel capacity (gasoline)|75gal|
 |Water capacity|22gal|
 |Holding tank capacity|11gal|
+</figure>

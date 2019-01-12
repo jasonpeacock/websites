@@ -1,11 +1,14 @@
 ---
 title: Projects
 subtitle:
-date: 'January 9, 2019'
+date: 'January 11, 2019'
 ---
 
 [Home Networking](home-networking)
 :    My home networking setup using Ubiquiti hardware.
+
+[Markdown Websites](markdown-websites)
+:    How I build my websites using markdown.
 
 [Silent "Ring Bell for Service"](silent-ring-bell-for-service)
 :    I needed a quiet way for others to get my attention at the office.

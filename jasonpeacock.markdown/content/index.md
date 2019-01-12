@@ -1,7 +1,7 @@
 ---
 title: Jason Peacock
 subtitle: Senior Overall Engineer
-date: 'January 10, 2019'
+date: 'January 11, 2019'
 ---
 
 ## Introduction
@@ -15,6 +15,8 @@ I maintain an [led-bargraph library](software/led-bargraph) for Rust, including 
 ## Highlights
 
 ### January, 2019
+
+How I build my websites [using markdown](projects/markdown-websites).
 
 I hacked together a [silent "Ring Bell for Service" doorbell sign](projects/silent-ring-bell-for-service) for my open-office desk-space at work.
 

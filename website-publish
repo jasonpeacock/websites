@@ -18,18 +18,18 @@ echo >&2 "Publishing [${WEBSITE}]"
 
 rsync \
     --checksum \
-    --recursive \
+    --compress \
+    --delay-updates \
+    --delete \
+    --delete-after \
+    --force \
+    --human-readable \
     --links \
     --perms \
-    --compress \
-    --safe-links \
-    --delete-after \
-    --delete \
-    --force \
-    --delay-updates \
-    --stats \
-    --human-readable \
     --progress \
+    --recursive \
+    --safe-links \
+    --stats \
     "${WEBSITE}" \
     "${USER}@${WEBSITE}:/home/${USER}"
 
