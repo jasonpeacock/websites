@@ -3,7 +3,9 @@ title: Office Hours
 subtitle: Talk to me
 ---
 
-(inspired by & blatantly copied from [Robert Heaton's /office-hours](https://robertheaton.com/2018/10/22/slash-office-hours/))
+## Introduction
+
+*Inspired by & blatantly copied from [Robert Heaton's /office-hours](https://robertheaton.com/2018/10/22/slash-office-hours/).*
 
 I'm going to start holding weekly Office Hours for people who want to get better at computer programming.
 These will be sessions of up to an hour over Skype where I'll try to answer your questions and help you

@@ -5,9 +5,9 @@ date: 'October 28, 2018'
 toc-title: Table Of Contents
 ---
 
-## Go Professional
+## Introduction
 
-If your home networking needs are simple[^simple_home_network], get a [consumer wireless router](https://thewirecutter.com/reviews/best-wi-fi-router/).
+[If]{.newthought} your home networking needs are simple[^simple_home_network], get a [consumer wireless router](https://thewirecutter.com/reviews/best-wi-fi-router/).
 But if you need more from your home network, you'll be frustrated with consumer networking equipment.
 
 [^simple_home_network]:
@@ -20,9 +20,7 @@ all the features you need for your home network.
 
 ## My Setup
 
-### Requirements
-
-I have a number of requirements beyond simple home networking. Primarily, a single WIFI router does not provide
+[I have a number of requirements]{.newthought} beyond simple home networking. Primarily, a single WIFI router does not provide
 full coverage for my house: I have a ranch-style home that is very long[^house_length]; there is no central location for
 a WIFI router that provides a strong signal everywhere. Most frustratingly, the signal was weakest in the garage
 (my workshop) and the master bedroom, and there was no signal at all in the yard.

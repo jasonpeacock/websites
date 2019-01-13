@@ -9,6 +9,7 @@ templates:
         preprocessors: []
         pandoc:
             css:
+                - /css/footer.css
                 - /css/pandoc-solarized.css
                 - /css/pandoc.css
                 - /css/tufte-extra.css
