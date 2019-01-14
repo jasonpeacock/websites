@@ -13,6 +13,9 @@ date: 'January 9, 2019'
 [Open Source Contributions](open-source-contributions)
 :    Tracking the projects that I've contributed to.
 
+[Small Changes](small-changes)
+:    How to make many, small changes to deliver a feature.
+
 <!--
 [Danaides](danaides)
 :    A distributed, Arduino-based water tank monitoring and pump-control system.

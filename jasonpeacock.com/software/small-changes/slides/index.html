@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>How small is your change?</title>
+        <meta name="description" content="Authoring impress.js presentations in Markdown" />
+        <meta name="author" content="Henrik Ingo" />
+        <link rel="stylesheet" href="/impress-extras/highlight/styles/github.css">
+        <link rel="stylesheet" href="css/markdown-slides.css" />
+    </head>
+
+    <body class="impress-not-supported">
+        <div class="fallback-message">
+            <p>Your browser <b>doesn't support the features required</b> by <code>impress.js</code>, so you are presented with a simplified version of this presentation.</p>
+            <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+        </div>
+
+        <div id="impress" data-transition-duration="1000">
+            <div id="markdown" class="step slide markdown" data-rel-x="0" data-rel-y="900">
+# How small is your change?
+
+
+-----
+1. Overview of how most teams end up doing development during sprints and the pitfalls: code all sprint and test/review/deploy in a "big bang" at the end of the sprint...or not, and have it be late. Many times CRs are pushed through with follow-up tasks added to the backlog to cleanup things that there wasn't time "to do right"...and we know those backlog items never get done.
+
+-----
+
+Imagine a
+
+-----
+1. The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.
+
+-----
+1. What it looks like in practice and how to implement for your team.
+
+-----
+1. Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.
+
+-----
+# Markdown.js
+
+-----
+# Styles
+
+* You can use *italics* & **bold**
+* ...and `code`
+
+
+-----
+# A blockquote &amp; image
+
+![Mother Teresa holding a newborn baby](images/3476636111_c551295ca4_b.jpg)
+
+> Spread love everywhere you go.
+> Let no one ever come to you without leaving happier.
+
+*-- Mother Teresa*
+
+Image credit: [Peta de Aztlan](https://www.flickr.com/photos/peta-de-aztlan/3476636111/)@Flickr. CC-BY 2.0
+
+-----
+# Code
+
+When also using [Highlight.js](https://highlightjs.org/) integration, code blocks in Markdown
+are converted to HTML first, then colored by Highlight.js:
+
+// `init` API function that initializes (and runs) the presentation.
+var init = function () {
+if (initialized) { return; }
+execPreInitPlugins();
+
+// First we set up the viewport for mobile devices.
+// For some reason iPad goes nuts when it is not done properly.
+var meta = $("meta[name='viewport']") || document.createElement("meta");
+meta.content = "width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no";
+if (meta.parentNode !== document.head) {
+meta.name = 'viewport';
+document.head.appendChild(meta);
+}
+
+-----
+
+# Slide separator
+
+* 5 dashes are used to separate slides:
+
+`-----`
+
+* Attributes from `div.step` element are simply repeated.
+* Better use relative positioning, lest your slides will all be on top of each other.
+* If you need to set some attributes, just use HTML and create a div element, then write
+Markdown inside each div.
+            </div><!-- id="markdown" -->
+        </div>
+
+        <div id="impress-toolbar"></div>
+        <div id="impress-help"></div>
+
+        <script type="text/javascript" src="/impress-extras/highlight/highlight.pack.js"></script>
+        <script type="text/javascript" src="/impress-extras/mermaid/mermaid.min.js"></script>
+        <script type="text/javascript" src="/impress-extras/markdown/markdown.js"></script>
+        <script type="text/javascript" src="/js/impress.js"></script>
+        <script>impress().init();</script>
+    </body>
+</html>

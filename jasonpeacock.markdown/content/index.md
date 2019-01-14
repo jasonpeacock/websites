@@ -14,6 +14,8 @@ I maintain an [led-bargraph library](software/led-bargraph) for Rust, including 
 
 ## Highlights
 
+Deliver features faster with [small changes](software/small-changes).
+
 [The Autobroom!](projects/autobroom).
 
 How I build my websites [using markdown](projects/markdown-websites).
