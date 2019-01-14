@@ -35,23 +35,25 @@ You won't have time to update the documentation, and you'll have to move some of
 
 Hopefully there is no additional feedback when you update the code review...
 
-### Or maybe...
-
-Your team has a *Definition of Done*, and you can't release the feature without testing and documentation. Even though the feature is code-complete, it's not ready for release.
-
-The feature goes into the backlog at the end of the sprint to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint, and hopefully release it then.
-
-### What went wrong
-
-Every sprint starts with the best intentions, but quickly meets reality.
-
-Best case, you released the feature to customers on time...and created technical debt:
+Best case, you release the feature to customers on time and created new technical debt:
 
 * No tests.
 * No documentation.
 * Open issues from the code review.
 
-Worst case, you failed to release the feature and it's been pushed to the next sprint or later. If later, the feature is slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.
+### Or maybe...
+
+Your team has a *Definition of Done*[^done_done_done], and you can't release the feature without testing and documentation. Even though the feature is code-complete, it's not yet ready for release.
+
+[^done_done_done]:
+Coded, tested, documented, and released.
+
+You failed to release the feature, it back into the backlog to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint, and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.
+
+### What went wrong
+
+Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade -- those are all good things that should be done. The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, leaving very little time for testing, review, documentation, and release.
+
 
 ## Making Smaller Changes
 
