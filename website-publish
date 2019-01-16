@@ -25,6 +25,7 @@ fi
 echo >&2 "Publishing [${WEBSITE}]"
 
 echo >&2 "Destination [${USER}@${WEBSITE}:/home/${USER}/${branch_dir}/]"
+ssh "${USER}@${WEBSITE}" mkdir -p "/home/${USER}/${branch_dir}/"
 
 rsync \
     --checksum \
@@ -40,8 +41,6 @@ rsync \
     --recursive \
     --safe-links \
     --stats \
-    -n \
-    --relative \
     "./${WEBSITE}/" \
     "${USER}@${WEBSITE}:/home/${USER}/${branch_dir}/"
 
