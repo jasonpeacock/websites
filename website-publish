@@ -14,7 +14,17 @@ if [[ -z "${WEBSITE}" ]]; then
   exit 1
 fi
 
+GIT_BRANCH="$(git symbolic-ref --short HEAD)"
+declare -r GIT_BRANCH
+
+branch_dir="${WEBSITE}"
+if [[ "${GIT_BRANCH}" != "master" ]];then
+  branch_dir="${WEBSITE}/branches/${GIT_BRANCH}"
+fi
+
 echo >&2 "Publishing [${WEBSITE}]"
+
+echo >&2 "Destination [${USER}@${WEBSITE}:/home/${USER}/${branch_dir}/]"
 
 rsync \
     --checksum \
@@ -30,8 +40,10 @@ rsync \
     --recursive \
     --safe-links \
     --stats \
-    "${WEBSITE}" \
-    "${USER}@${WEBSITE}:/home/${USER}"
+    -n \
+    --relative \
+    "./${WEBSITE}/" \
+    "${USER}@${WEBSITE}:/home/${USER}/${branch_dir}/"
 
 echo >&2 "Done!"
 
