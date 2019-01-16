@@ -56,7 +56,7 @@
 <p>Late in the day you finally get some feedback on your code review. It’s good feedback, but some of the requested changes are not trivial. You realize that it’s going to be a long night to make most of the requested changes in time for the sprint demo.</p>
 <p>You won’t have time to update the documentation, and you’ll have to move some of the larger requested changes to the backlog as follow-up issues, but at the feature will be released!</p>
 <p>Hopefully there is no additional feedback when you update the code review…</p>
-<p>Best case, you release the feature to customers on time and created new technical debt:</p>
+<p>Best case, you release the feature to customers on time and create new technical debt:</p>
 <ul>
 <li>No tests.</li>
 <li>No documentation.</li>
@@ -67,24 +67,30 @@
 <p>Your team has a <em>Definition of Done</em><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Coded, tested, documented, and released.<br />
 <br />
 </span></span>, and you can’t release the feature without testing and documentation. Even though the feature is code-complete, it’s not yet ready for release.</p>
-<p>You failed to release the feature, it back into the backlog to be re-prioritized for the next sprint. If you’re lucky, you’ll continue working on it in the next sprint, and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.</p>
+<p>You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you’re lucky, you’ll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.</p>
 </section>
 <section id="what-went-wrong" class="level3">
 <h3>What went wrong</h3>
-<p>Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade – those are all good things that should be done. The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, leaving very little time for testing, review, documentation, and release.</p>
+<p><strong>TODO: Actual problem not clear, need to consolidate/clarify the ideas.</strong></p>
+<p>Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade – those are all good things that should have been done.</p>
+<p>The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, while skipping design and leaving little time for testing, review, documentation, and release.</p>
+<p>The feature was developed in isolation and prepared for a <em>big bang</em><span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">One second the feature is not there, the next second <strong>BANG!</strong> there it is.<br />
+<br />
+</span></span> release. Only after the review, testing, etc. is done are the changes merged back to <code>master</code> and released to production.</p>
 </section>
 </section>
 <section id="making-smaller-changes" class="level2">
 <h2>Making Smaller Changes</h2>
-<p>The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.</p>
+<p>Instead of a big bang, aim for steady trickle :)</p>
+<p><em>The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.</em></p>
 <section id="what-it-looks-like-in-practice" class="level3">
 <h3>What it looks like in practice</h3>
-<p>What it looks like in practice and how to implement for your team.</p>
+<p><em>What it looks like in practice and how to implement for your team.</em></p>
 </section>
 </section>
 <section id="exercises-to-challenge-you-your-team" class="level2">
 <h2>Exercises to Challenge You &amp; Your Team</h2>
-<p>Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.</p>
+<p><em>Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.</em></p>
 </section>
         </article>
                 <footer>

@@ -35,7 +35,7 @@ You won't have time to update the documentation, and you'll have to move some of
 
 Hopefully there is no additional feedback when you update the code review...
 
-Best case, you release the feature to customers on time and created new technical debt:
+Best case, you release the feature to customers on time and create new technical debt:
 
 * No tests.
 * No documentation.
@@ -48,22 +48,33 @@ Your team has a *Definition of Done*[^done_done_done], and you can't release the
 [^done_done_done]:
 Coded, tested, documented, and released.
 
-You failed to release the feature, it back into the backlog to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint, and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.
+You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.
 
 ### What went wrong
 
-Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade -- those are all good things that should be done. The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, leaving very little time for testing, review, documentation, and release.
+**TODO: Actual problem not clear, need to consolidate/clarify the ideas.**
 
+Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade -- those are all good things that should have been done.
+
+The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, while skipping design and leaving little time for testing, review, documentation, and release.
+
+The feature was developed in isolation and prepared for a *big bang*[^big_bang] release. Only after the review, testing, etc. is done are the changes merged back to `master` and released to production.
+
+[^big_bang]:
+One second the feature is not there, the next second **BANG!** there it is.
 
 ## Making Smaller Changes
 
-The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.
+Instead of a big bang, aim for steady trickle :)
+
+*The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.*
+
 
 ### What it looks like in practice
 
-What it looks like in practice and how to implement for your team.
+*What it looks like in practice and how to implement for your team.*
 
 ## Exercises to Challenge You & Your Team
 
-Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.
+*Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.*
 
