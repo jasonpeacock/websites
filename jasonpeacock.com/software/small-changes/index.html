@@ -29,12 +29,15 @@
                 <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#what-usually-happens">What Usually Happens</a><ul>
                 <li><a href="#or-maybe">Or maybe…</a></li>
-                <li><a href="#what-went-wrong">What went wrong</a></li>
                 </ul></li>
+                <li><a href="#what-went-wrong">What went wrong</a></li>
                 <li><a href="#making-smaller-changes">Making Smaller Changes</a><ul>
                 <li><a href="#what-it-looks-like-in-practice">What it looks like in practice</a></li>
                 </ul></li>
                 <li><a href="#exercises-to-challenge-you-your-team">Exercises to Challenge You &amp; Your Team</a></li>
+                <li><a href="#faq">FAQ</a><ul>
+                <li><a href="#i-dont-know-what-changes-are-needed-before-i-start">I don’t know what changes are needed before I start</a></li>
+                </ul></li>
                 </ul>
             </nav>
                                     <section id="introduction" class="level2">
@@ -42,8 +45,8 @@
 <p><span class="newthought">Agile was supposed</span> to help deliver software faster. Instead, many teams have fallen into a <em>mini-waterfall</em> process, squeezing a feature’s full lifecycle<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Design, implementation, testing, review, documentation, release.<br />
 <br />
 </span></span> into a single sprint.</p>
-<p>For small features, this is not a problem, but most features are not small. Features usually sound small when first captured as a user story, but once development starts there is refactoring, code cleanup, unit &amp; integration tests, code review (with revisions!), and documentation before it can be released.</p>
-<p>Making smaller changes can bring the <em>agile</em> back to Agile Development.</p>
+<p>For small features, this is not a problem, but most features are not small. Features sound small when first captured as a user story, but once development starts there is refactoring, code cleanup, unit &amp; integration tests, code review (with revisions!), and documentation before it can be released.</p>
+<p>Making smaller changes can put the <em>agile</em> back in Agile Development.</p>
 </section>
 <section id="what-usually-happens" class="level2">
 <h2>What Usually Happens</h2>
@@ -56,7 +59,7 @@
 <p>Late in the day you finally get some feedback on your code review. It’s good feedback, but some of the requested changes are not trivial. You realize that it’s going to be a long night to make most of the requested changes in time for the sprint demo.</p>
 <p>You won’t have time to update the documentation, and you’ll have to move some of the larger requested changes to the backlog as follow-up issues, but at the feature will be released!</p>
 <p>Hopefully there is no additional feedback when you update the code review…</p>
-<p>Best case, you release the feature to customers on time and create new technical debt:</p>
+<p>Best case: you released the feature to customers on time and created new technical debt:</p>
 <ul>
 <li>No tests.</li>
 <li>No documentation.</li>
@@ -64,33 +67,51 @@
 </ul>
 <section id="or-maybe" class="level3">
 <h3>Or maybe…</h3>
-<p>Your team has a <em>Definition of Done</em><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Coded, tested, documented, and released.<br />
+<p>Your team has a <em>Definition of Done</em><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Coded, reviewed, tested, documented, and released.<br />
 <br />
-</span></span>, and you can’t release the feature without testing and documentation. Even though the feature is code-complete, it’s not yet ready for release.</p>
+</span></span>, and you couldn’t release the feature without testing and documentation. Even though the feature is code-complete, it’s not done.</p>
 <p>You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you’re lucky, you’ll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.</p>
 </section>
-<section id="what-went-wrong" class="level3">
-<h3>What went wrong</h3>
-<p><strong>TODO: Actual problem not clear, need to consolidate/clarify the ideas.</strong></p>
-<p>Every sprint starts with the best intentions, but quickly meets reality. The problem was not with the refactoring, or dependency upgrade – those are all good things that should have been done.</p>
-<p>The problem was spending 90% of the sprint on one part of the feature lifecycle, implementation, while skipping design and leaving little time for testing, review, documentation, and release.</p>
-<p>The feature was developed in isolation and prepared for a <em>big bang</em><span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">One second the feature is not there, the next second <strong>BANG!</strong> there it is.<br />
-<br />
-</span></span> release. Only after the review, testing, etc. is done are the changes merged back to <code>master</code> and released to production.</p>
 </section>
+<section id="what-went-wrong" class="level2">
+<h2>What went wrong</h2>
+<p><span class="newthought">Every sprint</span> starts with the best intentions.</p>
+<p>The feature was developed in isolation<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">Usually on a feature branch.<br />
+<br />
+</span></span> and prepared for a <em>big bang</em><span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">One moment the feature is not there, then <strong>BANG!</strong> it’s there.<br />
+<br />
+</span></span> release. After approval the changes merged to <code>master</code> and released.</p>
+<p>The problem was spending 90% of the sprint on one part of the feature lifecycle – implementation – while skipping the design and leaving little time for testing, review, documentation, and release.</p>
+<p>The result is a rush to release the feature before the sprint ends, with a lot of pressure on the code reviewers to approve the changes, deferring any significant feedback and accepting technical debt, all in the name of completing the story on time<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Also known as <em>date-driven development</em>, where changes are released by deadlines (e.g. end of sprint) instead of when they meet the quality bar.<br />
+<br />
+</span></span>.</p>
 </section>
 <section id="making-smaller-changes" class="level2">
 <h2>Making Smaller Changes</h2>
-<p>Instead of a big bang, aim for steady trickle :)</p>
+<p><span class="newthought">Aim for a steady trickle</span> instead of a big bang.</p>
+<p>A series of small, incremental changes that add up to a feature can be released throughout the sprint; you don’t have to wait until the end of the sprint to release changes.</p>
 <p><em>The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.</em></p>
 <section id="what-it-looks-like-in-practice" class="level3">
 <h3>What it looks like in practice</h3>
-<p><em>What it looks like in practice and how to implement for your team.</em></p>
+<p>At the start of the sprint you capture the series of changes needed to implement the feature. Then, every day, you make a small change, send it for code review, and release it.</p>
 </section>
 </section>
 <section id="exercises-to-challenge-you-your-team" class="level2">
 <h2>Exercises to Challenge You &amp; Your Team</h2>
 <p><em>Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.</em></p>
+</section>
+<section id="faq" class="level2">
+<h2>FAQ</h2>
+<section id="i-dont-know-what-changes-are-needed-before-i-start" class="level3">
+<h3>I don’t know what changes are needed before I start</h3>
+<p>This is what skipping the design sounds like. Before starting any changes there should be a plan, reviewed with your teammates, about how the feature will be implemented.</p>
+<p>Depending on the size of the feature, the design can be:</p>
+<ol type="1">
+<li>A bullet list of exit criteria in the story description, as the changes are obvious &amp; self-evident.</li>
+<li>A quick 2-4 paragraphs in a wiki describing the problem to be solved and the changes required to solve it.</li>
+<li>A full design document, capturing the problems, customer requirements, user experience, and proposed solution/implementation.</li>
+</ol>
+</section>
 </section>
         </article>
                 <footer>
