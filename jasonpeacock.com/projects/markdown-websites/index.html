@@ -107,11 +107,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 </ul></li>
                 <li><a href="#reviewing">Reviewing</a></li>
                 <li><a href="#publishing">Publishing</a></li>
-                <li><a href="#known-issues">Known Issues</a><ul>
-                <li><a href="#definition-lists-are-unsupported">Definition Lists are unsupported</a></li>
-                <li><a href="#code-in-sidenotes-is-too-large">Code in sidenotes is too large</a></li>
-                <li><a href="#figcaptions-are-not-displaying-properly">Figcaptions are not displaying properly</a></li>
-                </ul></li>
+                <li><a href="#known-issues">Known Issues</a></li>
                 <li><a href="#improvements">Improvements</a><ul>
                 <li><a href="#containerize-the-tools">Containerize the tools</a></li>
                 <li><a href="#host-on-s3cloudfront">Host on S3/Cloudfront</a></li>
@@ -440,20 +436,7 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 </section>
 <section id="known-issues" class="level2">
 <h2>Known Issues</h2>
-<p><span class="newthought">I’ll be filing issues and PRs</span> for these issues that I’ve discovered. There were originally more known issues, but with some investigation I found that they were already known (and working “as designed”), or were due to mistakes by myself :) It’s possible these remaining issues are also due to my own mistakes.</p>
-<section id="definition-lists-are-unsupported" class="level3">
-<h3>Definition Lists are unsupported</h3>
-<p>I had to add support to Tufte CSS for <code>&lt;dl&gt;</code>, <code>&lt;di&gt;</code>, and <code>&lt;dd&gt;</code>.</p>
-</section>
-<section id="code-in-sidenotes-is-too-large" class="level3">
-<h3>Code in sidenotes is too large</h3>
-<p>When using inline-literals (“code”, via backticks) in sidenotes the font size is too large.</p>
-</section>
-<section id="figcaptions-are-not-displaying-properly" class="level3">
-<h3>Figcaptions are not displaying properly</h3>
-<p>I had to fix the Tufte CSS for <code>&lt;figcaption&gt;</code> to display properly as a sidenote.</p>
-<p>They are still slightly broken and require at least 1 sidenote to exist in the page to display properly.</p>
-</section>
+<p><span class="newthought">I’m tracking issues</span> I’ve discovered in my <a href="https://github.com/jasonpeacock/websites/labels/bug">GitHub <code>websites</code> project</a>. Some issues may be due to mis-use by myself, I need to create repro steps to validate them before submitting PRs.</p>
 </section>
 <section id="improvements" class="level2">
 <h2>Improvements</h2>

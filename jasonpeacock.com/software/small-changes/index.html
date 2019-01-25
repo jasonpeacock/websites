@@ -32,19 +32,21 @@
                 </ul></li>
                 <li><a href="#what-went-wrong">What went wrong</a></li>
                 <li><a href="#making-smaller-changes">Making Smaller Changes</a><ul>
-                <li><a href="#what-it-looks-like-in-practice">What it looks like in practice</a></li>
+                <li><a href="#benefits-of-small-changes">Benefits of small changes</a></li>
                 </ul></li>
+                <li><a href="#what-it-looks-like-in-practice">What it looks like in practice</a></li>
                 <li><a href="#exercises-to-challenge-you-your-team">Exercises to Challenge You &amp; Your Team</a></li>
                 <li><a href="#faq">FAQ</a><ul>
-                <li><a href="#i-dont-know-what-changes-are-needed-before-i-start">I don’t know what changes are needed before I start</a></li>
+                <li><a href="#how-do-i-know-what-changes-are-needed-before-i-start">How do I know what changes are needed before I start?</a></li>
+                <li><a href="#how-do-you-revert-the-feature-without-a-single-atomic-commit">How do you revert the feature without a single, atomic commit?</a></li>
                 </ul></li>
                 </ul>
             </nav>
                                     <section id="introduction" class="level2">
 <h2>Introduction</h2>
-<p><span class="newthought">Agile was supposed</span> to help deliver software faster. Instead, many teams have fallen into a <em>mini-waterfall</em> process, squeezing a feature’s full lifecycle<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Design, implementation, testing, review, documentation, release.<br />
+<p><span class="newthought">Many teams have fallen</span> into a <em>mini-waterfall</em> process. They call it <em>Agile Development</em> because they are squeezing a feature’s full lifecycle<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Design, implementation, testing, review, documentation, release.<br />
 <br />
-</span></span> into a single sprint.</p>
+</span></span> into a single sprint, but they are not reaping the benefits.</p>
 <p>For small features, this is not a problem, but most features are not small. Features sound small when first captured as a user story, but once development starts there is refactoring, code cleanup, unit &amp; integration tests, code review (with revisions!), and documentation before it can be released.</p>
 <p>Making smaller changes can put the <em>agile</em> back in Agile Development.</p>
 </section>
@@ -70,31 +72,88 @@
 <p>Your team has a <em>Definition of Done</em><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Coded, reviewed, tested, documented, and released.<br />
 <br />
 </span></span>, and you couldn’t release the feature without testing and documentation. Even though the feature is code-complete, it’s not done.</p>
-<p>You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you’re lucky, you’ll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.</p>
+<p>You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you’re lucky, you’ll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring it back up-to-date<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote"><code>git rebase</code>, etc.<br />
+<br />
+</span></span> before it can be completed.</p>
 </section>
 </section>
 <section id="what-went-wrong" class="level2">
 <h2>What went wrong</h2>
 <p><span class="newthought">Every sprint</span> starts with the best intentions.</p>
-<p>The feature was developed in isolation<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">Usually on a feature branch.<br />
+<p>The feature was developed in isolation<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">Usually on a feature branch.<br />
 <br />
-</span></span> and prepared for a <em>big bang</em><span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">One moment the feature is not there, then <strong>BANG!</strong> it’s there.<br />
+</span></span> and prepared for a <em>big bang</em><span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">One moment the feature is not there, then <strong>BANG!</strong> it’s there.<br />
 <br />
-</span></span> release. After approval the changes merged to <code>master</code> and released.</p>
-<p>The problem was spending 90% of the sprint on one part of the feature lifecycle – implementation – while skipping the design and leaving little time for testing, review, documentation, and release.</p>
-<p>The result is a rush to release the feature before the sprint ends, with a lot of pressure on the code reviewers to approve the changes, deferring any significant feedback and accepting technical debt, all in the name of completing the story on time<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Also known as <em>date-driven development</em>, where changes are released by deadlines (e.g. end of sprint) instead of when they meet the quality bar.<br />
+</span></span> release. After approval the changes were merged to <code>master</code> and released.</p>
+<p>The problem was spending 90% of the sprint on one part of the feature lifecycle – implementation – while skipping the design phase and leaving little time for testing, review, documentation, and release.</p>
+<p>The result is a rush to release the feature before the sprint ends, with a lot of pressure on teammates to approve the changes, deferring any significant feedback and accepting technical debt, all in the name of completing the story on time<span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">Also known as <em>Date-Driven Development</em>, where changes are released by deadline (e.g. end of sprint) instead of when they meet the Definition of Done.<br />
 <br />
 </span></span>.</p>
 </section>
 <section id="making-smaller-changes" class="level2">
 <h2>Making Smaller Changes</h2>
-<p><span class="newthought">Aim for a steady trickle</span> instead of a big bang.</p>
-<p>A series of small, incremental changes that add up to a feature can be released throughout the sprint; you don’t have to wait until the end of the sprint to release changes.</p>
-<p><em>The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.</em></p>
-<section id="what-it-looks-like-in-practice" class="level3">
-<h3>What it looks like in practice</h3>
-<p>At the start of the sprint you capture the series of changes needed to implement the feature. Then, every day, you make a small change, send it for code review, and release it.</p>
+<p><span class="newthought">Aim for a steady trickle</span> of small changes released throughout the sprint instead of a big-bang release at the end of the sprint.</p>
+<p>A small change is the smallest<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote"><strong>What is too small?</strong><br />
+<br />
+</span></span> logical change that moves the feature closer to complete. Small changes usually align with the implementation steps in the feature design. Small changes don’t always result in a customer-visible change, most changes are refactoring existing code or laying the groundwork for later changes.</p>
+<p>Each small change is released when it’s complete, which includes review, testing, and documentation to meet the <em>Definition of Done</em>.</p>
+<p><strong>finish introducing, defining, and describing what small changes are</strong></p>
+<p><strong>can’t just release random changes without a strong DoD, or your just “editing live”</strong></p>
+<section id="benefits-of-small-changes" class="level3">
+<h3>Benefits of small changes</h3>
+<ul>
+<li><em>Easy to understand</em></li>
+</ul>
+<p>Small changes are easy to understand and quick to communicate to all teammates, instead of the one teammate who did the review.<span><label for="sn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="marginnote"> Big changes can require sitting with teammates to explain, or even a team meeting!<br />
+<br />
+</span></span></p>
+<ul>
+<li><em>Fast code reviews</em></li>
+</ul>
+<p>Small changes have small code reviews, and fast turnaround, increasing the chance of multiple teammates participating in the review.<span><label for="sn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-10" class="margin-toggle"/><span class="marginnote"> Big changes require playing tag to find a teammate for your review, because nobody wants spend their time on a large review. Large reviews produce lots of feedback, which leads to many revisions.<br />
+<br />
+</span></span></p>
+<ul>
+<li><em>Continuous Feedback</em></li>
+</ul>
+<p>Teammates can provide early &amp; constant feedback when releasing small changes frequently. It’s cheaper to change your implementation early, before you are fully invested, and when you are more receptive to feedback.</p>
+<ul>
+<li><em>Code is always working</em></li>
+</ul>
+<p>Code is always in a working state when releasing small changes, you avoid “tear it all apart and try to put it back together” problems.</p>
+<ul>
+<li><em>Test coverage is clear</em></li>
+</ul>
+<p>Writing comprehensive tests cases is straightforward when changes are small; reviewers understand what changed and what should be included in testing.</p>
+<ul>
+<li><em>Documentation is updated continuously</em></li>
+</ul>
+<p>Writing documentation can be slow and overwhelming, small changes minimize the required documentation.</p>
+<ul>
+<li><em>Bugs are smaller</em></li>
+</ul>
+<p>Bugs are easier to find; <code>git-bisect</code> works very well when a feature is composed of many small changes. You can pinpoint the exact (small!) change that caused the issue instead of debugging a large change in a single commit.</p>
+<ul>
+<li><em>High confidence releases</em></li>
+</ul>
+<p>Feedback (performance, bugs, etc) is immediate when you release changes frequently. There are no worries when you launch the feature that it may cause issues. You’re only changing one small thing a at time.</p>
+<ul>
+<li><em>Work can be paused at any time.</em></li>
+</ul>
+<p>No worry about leaving work unfinished and losing context, stale branches rotting, or not meeting the Definition of Done when every change is completed and released daily (or faster!).</p>
+<ul>
+<li><em>Progress is obvious.</em></li>
+</ul>
+<p>Teammates, managers, and customers can all watch the daily progress and know how close the feature is to release.</p>
+<ul>
+<li><em>No merge hell.</em></li>
+</ul>
+<p>Teammates are continuously integrating with your changes, and you with theirs.</p>
 </section>
+</section>
+<section id="what-it-looks-like-in-practice" class="level2">
+<h2>What it looks like in practice</h2>
+<p>At the start of the sprint you capture the series of changes needed to implement the feature. Then, every day, you make a small change, send it for code review, and release it.</p>
 </section>
 <section id="exercises-to-challenge-you-your-team" class="level2">
 <h2>Exercises to Challenge You &amp; Your Team</h2>
@@ -102,15 +161,22 @@
 </section>
 <section id="faq" class="level2">
 <h2>FAQ</h2>
-<section id="i-dont-know-what-changes-are-needed-before-i-start" class="level3">
-<h3>I don’t know what changes are needed before I start</h3>
-<p>This is what skipping the design sounds like. Before starting any changes there should be a plan, reviewed with your teammates, about how the feature will be implemented.</p>
+<section id="how-do-i-know-what-changes-are-needed-before-i-start" class="level3">
+<h3>How do I know what changes are needed before I start?</h3>
+<p>This is what skipping the design phase sounds like. Before making any changes there should be a design, reviewed with your teammates, about how the feature will be implemented.</p>
 <p>Depending on the size of the feature, the design can be:</p>
 <ol type="1">
-<li>A bullet list of exit criteria in the story description, as the changes are obvious &amp; self-evident.</li>
+<li>A bullet list of exit criteria in the story description, as the changes are obvious &amp; straightforward.</li>
 <li>A quick 2-4 paragraphs in a wiki describing the problem to be solved and the changes required to solve it.</li>
 <li>A full design document, capturing the problems, customer requirements, user experience, and proposed solution/implementation.</li>
 </ol>
+<p>Of course, nothing says that you’re not allowed to change your mind. Was that change 3 commits ago not quite right? Change it!</p>
+</section>
+<section id="how-do-you-revert-the-feature-without-a-single-atomic-commit" class="level3">
+<h3>How do you revert the feature without a single, atomic commit?</h3>
+<p>Use feature flags.</p>
+<p>Changes are released continually and bugs fixed as they appear, less risk than big-bang release.</p>
+<p>Use <code>git-bisect</code> to identify the commit that introduced the change, can’t do that with big-bang release.</p>
 </section>
 </section>
         </article>

@@ -7,7 +7,7 @@ toc-title: Table Of Contents
 
 ## Introduction
 
-[Agile was supposed]{.newthought} to help deliver software faster. Instead, many teams have fallen into a *mini-waterfall* process, squeezing a feature's full lifecycle[^feature_lifecycle] into a single sprint.
+[Many teams have fallen]{.newthought} into a *mini-waterfall* process. They call it *Agile Development* because they are squeezing a feature's full lifecycle[^feature_lifecycle] into a single sprint, but they are not reaping the benefits.
 
 [^feature_lifecycle]:
 Design, implementation, testing, review, documentation, release.
@@ -48,13 +48,16 @@ Your team has a *Definition of Done*[^done_done_done], and you couldn't release 
 [^done_done_done]:
 Coded, reviewed, tested, documented, and released.
 
-You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring up-to-date before it can be completed.
+You failed to release the feature; it goes back into the backlog to be re-prioritized for the next sprint. If you're lucky, you'll continue working on it in the next sprint and hopefully release it then. If not, the feature slowly rots on its own branch and will require extra work to bring it back up-to-date[^rebase] before it can be completed.
+
+[^rebase]:
+`git rebase`, etc.
 
 ## What went wrong
 
 [Every sprint]{.newthought} starts with the best intentions.
 
-The feature was developed in isolation[^feature_branch] and prepared for a *big bang*[^big_bang] release. After approval the changes merged to `master` and released.
+The feature was developed in isolation[^feature_branch] and prepared for a *big bang*[^big_bang] release. After approval the changes were merged to `master` and released.
 
 [^feature_branch]:
 Usually on a feature branch.
@@ -62,22 +65,81 @@ Usually on a feature branch.
 [^big_bang]:
 One moment the feature is not there, then **BANG!** it's there.
 
-The problem was spending 90% of the sprint on one part of the feature lifecycle -- implementation -- while skipping the design and leaving little time for testing, review, documentation, and release.
+The problem was spending 90% of the sprint on one part of the feature lifecycle -- implementation -- while skipping the design phase and leaving little time for testing, review, documentation, and release.
 
-The result is a rush to release the feature before the sprint ends, with a lot of pressure on the code reviewers to approve the changes, deferring any significant feedback and accepting technical debt, all in the name of completing the story on time[^date_driven].
+The result is a rush to release the feature before the sprint ends, with a lot of pressure on teammates to approve the changes, deferring any significant feedback and accepting technical debt, all in the name of completing the story on time[^date_driven].
 
 [^date_driven]:
-Also known as *date-driven development*, where changes are released by deadlines (e.g. end of sprint) instead of when they meet the quality bar.
+Also known as *Date-Driven Development*, where changes are released by deadline (e.g. end of sprint) instead of when they meet the Definition of Done.
 
 ## Making Smaller Changes
 
-[Aim for a steady trickle]{.newthought} instead of a big bang.
+[Aim for a steady trickle]{.newthought} of small changes released throughout the sprint instead of a big-bang release at the end of the sprint.
 
-A series of small, incremental changes that add up to a feature can be released throughout the sprint; you don't have to wait until the end of the sprint to release changes.
+A small change is the smallest[^smallest] logical change that moves the feature closer to complete. Small changes usually align with the implementation steps in the feature design. Small changes don't always result in a customer-visible change, most changes are refactoring existing code or laying the groundwork for later changes.
 
-*The advantages of incremental development and release throughout the sprint. Constant feedback, always have a working version, requires more thought before starting. Smaller changes are faster to review, easier to understand, quicker to fix.*
+[^smallest]:
+**What is too small?**
 
-### What it looks like in practice
+Each small change is released when it's complete, which includes review, testing, and documentation to meet the *Definition of Done*.
+
+**finish introducing, defining, and describing what small changes are**
+
+**can't just release random changes without a strong DoD, or your just "editing live"**
+
+### Benefits of small changes
+
+* *Easy to understand*
+
+Small changes are easy to understand and quick to communicate to all teammates, instead of the one teammate who did the review.[^bb_understand]
+
+[^bb_understand]:
+{-} Big changes can require sitting with teammates to explain, or even a team meeting!
+
+* *Fast code reviews*
+
+Small changes have small code reviews, and fast turnaround, increasing the chance of multiple teammates participating in the review.[^bb_cr]
+
+[^bb_cr]:
+{-} Big changes require playing tag to find a teammate for your review, because nobody wants spend their time on a large review. Large reviews produce lots of feedback, which leads to many revisions.
+
+* *Continuous Feedback*
+
+Teammates can provide early & constant feedback when releasing small changes frequently. It's cheaper to change your implementation early, before you are fully invested, and when you are more receptive to feedback.
+
+* *Code is always working*
+
+Code is always in a working state when releasing small changes, you avoid "tear it all apart and try to put it back together" problems.
+
+* *Test coverage is clear*
+
+Writing comprehensive tests cases is straightforward when changes are small; reviewers understand what changed and what should be included in testing.
+
+* *Documentation is updated continuously*
+
+Writing documentation can be slow and overwhelming, small changes minimize the required documentation.
+
+* *Bugs are smaller*
+
+Bugs are easier to find; `git-bisect` works very well when a feature is composed of many small changes. You can pinpoint the exact (small!) change that caused the issue instead of debugging a large change in a single commit.
+
+* *High confidence releases*
+
+Feedback (performance, bugs, etc) is immediate when you release changes frequently. There are no worries when you launch the feature that it may cause issues. You're only changing one small thing a at time.
+
+* *Work can be paused at any time.*
+
+No worry about leaving work unfinished and losing context, stale branches rotting, or not meeting the Definition of Done when every change is completed and released daily (or faster!).
+
+* *Progress is obvious.*
+
+Teammates, managers, and customers can all watch the daily progress and know how close the feature is to release.
+
+* *No merge hell.*
+
+Teammates are continuously integrating with your changes, and you with theirs.
+
+## What it looks like in practice
 
 At the start of the sprint you capture the series of changes needed to implement the feature. Then, every day, you make a small change, send it for code review, and release it.
 
@@ -87,12 +149,23 @@ At the start of the sprint you capture the series of changes needed to implement
 
 ## FAQ
 
-### I don't know what changes are needed before I start
+### How do I know what changes are needed before I start?
 
-This is what skipping the design sounds like. Before starting any changes there should be a plan, reviewed with your teammates, about how the feature will be implemented.
+This is what skipping the design phase sounds like. Before making any changes there should be a design, reviewed with your teammates, about how the feature will be implemented.
 
 Depending on the size of the feature, the design can be:
 
-1. A bullet list of exit criteria in the story description, as the changes are obvious & self-evident.
+1. A bullet list of exit criteria in the story description, as the changes are obvious & straightforward.
 1. A quick 2-4 paragraphs in a wiki describing the problem to be solved and the changes required to solve it.
 1. A full design document, capturing the problems, customer requirements, user experience, and proposed solution/implementation.
+
+Of course, nothing says that you're not allowed to change your mind. Was that change 3 commits ago not quite right? Change it!
+
+### How do you revert the feature without a single, atomic commit?
+
+Use feature flags.
+
+Changes are released continually and bugs fixed as they appear, less risk than big-bang release.
+
+Use `git-bisect` to identify the commit that introduced the change, can't do that with big-bang release.
+

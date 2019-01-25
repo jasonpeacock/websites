@@ -403,21 +403,7 @@ To simplify this, I've written a wrapper script [`website-publish`](https://gith
 
 ## Known Issues
 
-[I'll be filing issues and PRs]{.newthought} for these issues that I've discovered. There were originally more known issues, but with some investigation I found that they were already known (and working "as designed"), or were due to mistakes by myself :) It's possible these remaining issues are also due to my own mistakes.
-
-### Definition Lists are unsupported
-
-I had to add support to Tufte CSS for `<dl>`, `<di>`, and `<dd>`.
-
-### Code in sidenotes is too large
-
-When using inline-literals ("code", via backticks) in sidenotes the font size is too large.
-
-### Figcaptions are not displaying properly
-
-I had to fix the Tufte CSS for `<figcaption>` to display properly as a sidenote.
-
-They are still slightly broken and require at least 1 sidenote to exist in the page to display properly.
+[I'm tracking issues]{.newthought} I've discovered in my [GitHub `websites` project](https://github.com/jasonpeacock/websites/labels/bug). Some issues may be due to mis-use by myself, I need to create repro steps to validate them before submitting PRs.
 
 ## Improvements
 
