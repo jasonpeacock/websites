@@ -14,7 +14,7 @@ Design, implementation, testing, review, documentation, release.
 
 For small features, this is not a problem, but most features are not small. Features sound small when first captured as a user story; once development starts there is refactoring, code cleanup, unit & integration tests, code review (with revisions!), and documentation before it can be released.
 
-Making smaller changes can put the *agile* back in Agile Development.
+Making small changes puts the *agile* back in Agile Development.
 
 ## What Usually Happens
 
@@ -70,20 +70,75 @@ The result is a rush to release the feature before the sprint ends, with a lot o
 [^date_driven]:
 Also known as *Date-Driven Development*, where changes are released by deadline (e.g. end of sprint) instead of when they meet the Definition of Done.
 
-## Making Smaller Changes
+## Making Small Changes
 
 [Aim for a steady trickle]{.newthought} of small changes released throughout the sprint instead of a big-bang release at the end of the sprint.
 
-A small change is the smallest[^smallest] logical change that moves the feature closer to complete. Small changes usually align with the implementation steps in the feature design. Small changes don't always result in a customer-visible change, many changes refactor existing code or lay the groundwork for later changes.
+A small change is the smallest step[^smallest] that moves the feature closer to complete. Small changes usually align with the implementation steps in the feature design.
 
 [^smallest]:
-**What is too small?**
+A small change should make sense on its own, don't break a change in half just to make it small. Figure out the steps to implementation the change, then make each step a small change.
 
-Each small change is released when it's complete, which includes review, testing, and documentation to meet the *Definition of Done*.
+Small changes don't always result in a customer-visible change, they can refactor existing code or lay the groundwork for later changes.
 
-**finish introducing, defining, and describing what small changes are**
+Small changes are released as they are completed, which includes review, testing, and documentation to meet the *Definition of Done*.
 
-**can't just release random changes without a strong DoD, or your just "editing live"**
+The work of coding, testing, reviewing, documenting, and releasing a change should all be *completed within one business day*[^business_day]. If it takes two days, or a week, to complete a change then it isn't small.
+
+[^business_day]:
+It doesn't have to be literally 8am to 5pm, it could be 10am today to 10am tomorrow, etc. A casual approach could be "make a change today, release it tomorrow morning, then start the next change."
+
+Completing small changes within a day is possible because small changes have small tests, quick reviews, short docs, and fast releases.
+
+Frequently, small changes are completed in less than a day, and multiple changes are released in the same day.[^same_day_goals]
+
+[^same_day_goals]:
+This is a good goal to strive for, it demonstrates you have achieved small-change enlightenment!
+
+### The importance of Definition of Done
+
+Making small changes is not about pushing whatever the current state of the feature is at the end of the day.
+
+Commonly, a series of changes are released to support a feature, then another series of changes are released to pay off the technical debt (code cleanup, refactoring, unit tests).
+
+That's just making changes to production "live", accumulating technical debt to be paid off before the feature can be completed.
+
+Applying the *Definition of Done* to every change ensures no technical debt is accumulated. Feature development can be stopped[^stopped] at any moment with no technical debt.
+
+[^stopped]:
+Priorities change, fires need fighting, orgs get re-org'd.
+
+## What it looks like in practice
+
+[At the start of each sprint]{.newthought} every story is broken down into day-sized tasks (or smaller) needed to implement the features.
+
+This is a great opportunity for a sanity check - can all the tasks for each story be completed in the current sprint? Some stories may need to be split into additional backlog stories if there are too many tasks.
+
+Each day, developers make code changes, write tests, and do code reviews. They update docs and release small changes, completing the tasks.
+
+When developers are waiting on code review feedback for a task they can switch[^multitasking] to another task and start working on that small change.
+
+[^multitasking]:
+Multitasking has been proven to not work. Instead, this follows the single-tasking approach of working one thing until blocked, *then* switching.
+
+### Every story has day-sized tasks
+
+Some stories are simple and only need one task. A day-sized task is still created to track the effort.
+
+Some stories have tasks that are not development related -- debugging, doc writing, design, training, etc. They are still broken down into day-sized tasks.
+
+Open-ended tasks such as investigation or debugging are broken down into day-sized tasks with goals for each day, even when the effort spans multiple days.
+
+Creating day-sized tasks for all efforts, even on-going multi-day efforts, ensures the team always knows the current status of all stories and avoids the useless "it's still in progress" daily stand-up update.
+
+## Adopting small changes in your team
+
+[It can be challenging]{.newthought} to adopt new practices like making small changes. Here are some suggestions to apply in your team:
+
+* Schedule a daily time for teammates to review open CRs to unblock small changes.
+* Create tasks *smaller** than a day, as they will most likely be under-estimated.
+* Break down stories into tasks as a team.
+* Update tasks every day, don't wait until the end of the sprint.
 
 ## Benefits of small changes
 
@@ -92,7 +147,7 @@ Each small change is released when it's complete, which includes review, testing
 Small changes are easy to understand and quick to communicate to all teammates, instead of the one teammate who did the review.[^bb_understand]
 
 [^bb_understand]:
-{-} Big changes can require sitting with teammates to explain, or even a team meeting!
+{-} Big changes can require sitting with teammates to explain them, or even a team meeting!
 
 &check; *Fast code reviews*
 
@@ -139,21 +194,37 @@ Small changes have small scope, and rarely conflict with changes from other team
 
 Burn down graphs and other tracking tools provide fine-grained detail due to small changes being constantly released & their tasks resolved. Teammates, managers, and customers how close the feature is being completed, and can easily track the team's progress towards its sprint goals.
 
-## What it looks like in practice
-
-At the start of the sprint you capture the series of changes needed to implement the feature. Then, every day, you make a small change, send it for code review, and release it.
-
-**assumes you have a good CI/CD setup**
-
-**assumes you have good/thorough testing - small changes can help you grow your test coverage**
-
-## Exercises to Challenge You & Your Team
-
-*Exercises to challenge current paradigms and find what fits best for your team. E.g. force everyone to review/commit at the end of each day for a sprint and then talk about the experience in the retrospective.*
-
-**kent beck's "commit or revert" experiment**
-
 ## FAQ
+
+### Changes can't be completed in a day.
+
+The team's *Definition of Done* may be too onerous. Review the definitions to see what is causing the most friction. It does not need to be extensive -- usually it is as simple as "code complete, tested, and reviewed." Many teams include documentation and release as well.
+
+Or, the tasks are not actually day-sized. Teams are usually optimistic, especially when they are not used to including testing, review, and release in their task estimates. Try breaking down the tasks into smaller than day-sized estimates until the team
+
+### Code reviews don't happen fast enough to release every day.
+
+Schedule a daily time for teammates to review open CRs to unblock small changes, or have assigned teammates responsible for handling CRs each day.
+
+### Our release process doesn't support changes every day.
+
+Small changes and agile development go hand-in-hand with continuous development. Teams can use the frequent releases of small changes to work on improving their continuous development expereince and streamline the release process.
+
+### When is a small change too small?
+
+There is an overhead to applying the *Definition of Done* to too-small changes, just as there is an exponential cost with changes that are too large.
+
+Don't release changes just for the sake of releasing every day. Evaluate if the change moves the feature closer to complete.
+
+### How does this fit with Agile Development?
+
+kent beck's "commit or revert" experiment
+
+https://medium.com/@kentbeck_7670/limbo-on-the-cheap-e4cfae840330
+
+https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864
+
+don't take my work for it: https://en.wikipedia.org/wiki/Kent_Beck
 
 ### How do I know what changes are needed before I start?
 
@@ -175,3 +246,6 @@ Changes are released continually and bugs fixed as they appear, less risk than b
 
 Use `git-bisect` to identify the commit that introduced the change, can't do that with big-bang release.
 
+### How to work on serial tasks without being blocked by reviews?
+
+Use `git` branches.
