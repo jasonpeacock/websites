@@ -51,7 +51,7 @@ You failed to release the feature; it goes back into the backlog to be re-priori
 [^rebase]:
 `git rebase`, etc.
 
-## What went wrong
+## What Went Wrong
 
 [Every sprint]{.newthought} starts with the best intentions.
 
@@ -108,7 +108,7 @@ Applying the *Definition of Done* to every change ensures no technical debt is a
 [^stopped]:
 Priorities change, fires need fighting, orgs get re-org'd.
 
-## What it looks like in practice
+## Small Changes in Practice
 
 [At the start of each sprint]{.newthought} every story is broken down into day-sized tasks (or smaller) needed to implement the features.
 
@@ -131,7 +131,7 @@ Open-ended tasks such as investigation or debugging are broken down into day-siz
 
 Creating day-sized tasks for all efforts, even on-going multi-day efforts, ensures the team always knows the current status of all stories and avoids the useless "it's still in progress" daily stand-up update.
 
-## Adopting small changes in your team
+## Adopting Small Changes
 
 [It can be challenging]{.newthought} to adopt new practices like making small changes. Here are some suggestions to apply in your team:
 
@@ -140,7 +140,7 @@ Creating day-sized tasks for all efforts, even on-going multi-day efforts, ensur
 * Break down stories into tasks as a team.
 * Update tasks every day, don't wait until the end of the sprint.
 
-## Benefits of small changes
+## Benefits of Small Changes
 
 &check; *Easy to understand*
 
@@ -156,7 +156,7 @@ Small changes have small code reviews, and fast turnaround, increasing the chanc
 [^bb_cr]:
 {-} Big changes require playing tag to find a teammate for your review, because nobody wants spend their time on a large review. Large reviews produce lots of feedback, which leads to many revisions.
 
-&check; *Continuous Feedback*
+&check; *Continuous feedback*
 
 Teammates can provide early & constant feedback when releasing small changes frequently. It's cheaper to change your implementation early, before you are fully invested, and when you are more receptive to feedback.
 
