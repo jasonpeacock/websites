@@ -8,26 +8,27 @@
                         <title>Markdown Websites</title>
         <style type="text/css">code{white-space: pre;}</style>
                         <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -36,9 +37,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -183,26 +184,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It doesn’t get much simpler<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">I could extend the wrapper to include the webserver and monitoring commands, and automatically publish using a git hook…<br />
 <br />
 </span></span>. Below is the actual workflow, the rest of this page explains how all the parts come together to support this workflow.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Go to my local websites `git` repo.</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">cd</span> ~/workplace/websites</a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co"># Launch a local webserver in the background, then</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co"># open http://localhost:8000 in my browser.</span></a>
-<a class="sourceLine" id="cb1-6" title="6">python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></a>
-<a class="sourceLine" id="cb1-7" title="7"></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co"># Monitor the markdown content for changes and</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="co"># automatically rebuild the website.</span></a>
-<a class="sourceLine" id="cb1-10" title="10">rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="co"># Edit content, save changes, and review the results when I</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="co"># reload the browser tab.</span></a>
-<a class="sourceLine" id="cb1-14" title="14">vim jasonpeacock.markdown/content/index.md</a>
-<a class="sourceLine" id="cb1-15" title="15"></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="co"># Publish to my webhost.</span></a>
-<a class="sourceLine" id="cb1-17" title="17">./website-publish jasonpeacock.com</a>
-<a class="sourceLine" id="cb1-18" title="18"></a>
-<a class="sourceLine" id="cb1-19" title="19"><span class="co"># Commit and push the website changes.</span></a>
-<a class="sourceLine" id="cb1-20" title="20">git add -A <span class="kw">&amp;&amp;</span> git commmit -m <span class="st">&quot;updated website&quot;</span> <span class="kw">&amp;&amp;</span> git push</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Go to my local websites `git` repo.</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">cd</span> ~/workplace/websites</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Launch a local webserver in the background, then</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># open http://localhost:8000 in my browser.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Monitor the markdown content for changes and</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># automatically rebuild the website.</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># Edit content, save changes, and review the results when I</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># reload the browser tab.</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>vim jasonpeacock.markdown/content/index.md</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Publish to my webhost.</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>./website-publish jasonpeacock.com</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># Commit and push the website changes.</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>git add -A <span class="kw">&amp;&amp;</span> git commmit -m <span class="st">&quot;updated website&quot;</span> <span class="kw">&amp;&amp;</span> git push</span></code></pre></div>
 </section>
 <section id="editing" class="level2">
 <h2>Editing</h2>
@@ -362,53 +363,53 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 </span></span> to recursively traverse my website content directory tree and invoke <code>pandoc</code> to convert all the content pages from <code>markdown</code> to <code>HTML</code>.</p>
 <p>Pandocomatic is quite flexible through the use of <code>YAML</code> templates, it’s worth reading the <a href="https://heerdebeer.org/Software/markdown/pandocomatic/">docs</a> to understand everything that is possible.</p>
 <p>For my websites, that Pandocomatic <code>YAML</code> configuration is <a href="https://github.com/jasonpeacock/websites/blob/master/jasonpeacock.markdown/pandocomatic/pandocomatic.yaml">pandocomatic.yaml</a>. An example is below.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">settings:</span></a>
-<a class="sourceLine" id="cb5-2" title="2">    <span class="fu">recursive:</span><span class="at"> </span><span class="ch">true</span></a>
-<a class="sourceLine" id="cb5-3" title="3">    <span class="fu">follow-links:</span><span class="at"> </span><span class="ch">false</span></a>
-<a class="sourceLine" id="cb5-4" title="4">    <span class="fu">skip:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;.*&#39;</span><span class="kw">,</span> <span class="st">&#39;pandocomatic.yaml&#39;</span><span class="kw">]</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="fu">templates:</span></a>
-<a class="sourceLine" id="cb5-6" title="6">    <span class="fu">blog:</span></a>
-<a class="sourceLine" id="cb5-7" title="7">        <span class="fu">glob:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;*.md&#39;</span><span class="kw">]</span></a>
-<a class="sourceLine" id="cb5-8" title="8">        <span class="fu">setup:</span><span class="at"> </span><span class="kw">[]</span></a>
-<a class="sourceLine" id="cb5-9" title="9">        <span class="fu">preprocessors:</span><span class="at"> </span><span class="kw">[]</span></a>
-<a class="sourceLine" id="cb5-10" title="10">        <span class="fu">pandoc:</span></a>
-<a class="sourceLine" id="cb5-11" title="11">            <span class="fu">css:</span></a>
-<a class="sourceLine" id="cb5-12" title="12">                <span class="kw">-</span> /css/pandoc-solarized.css</a>
-<a class="sourceLine" id="cb5-13" title="13">                <span class="kw">-</span> /css/pandoc.css</a>
-<a class="sourceLine" id="cb5-14" title="14">                <span class="kw">-</span> /css/tufte-extra.css</a>
-<a class="sourceLine" id="cb5-15" title="15">                <span class="kw">-</span> /css/tufte.css</a>
-<a class="sourceLine" id="cb5-16" title="16">            <span class="fu">filter:</span><span class="at"> pandoc-sidenote</span></a>
-<a class="sourceLine" id="cb5-17" title="17">            <span class="fu">from:</span><span class="at"> markdown+implicit_header_references</span></a>
-<a class="sourceLine" id="cb5-18" title="18">            <span class="fu">section-divs:</span><span class="at"> </span><span class="ch">true</span></a>
-<a class="sourceLine" id="cb5-19" title="19">            <span class="fu">template:</span><span class="at"> tufte.html5</span></a>
-<a class="sourceLine" id="cb5-20" title="20">            <span class="fu">to:</span><span class="at"> html5+smart</span></a>
-<a class="sourceLine" id="cb5-21" title="21">            <span class="fu">toc:</span><span class="at"> </span><span class="ch">true</span></a>
-<a class="sourceLine" id="cb5-22" title="22">        <span class="fu">postprocessors:</span></a>
-<a class="sourceLine" id="cb5-23" title="23">            <span class="kw">-</span> postprocessors/tidy.sh</a>
-<a class="sourceLine" id="cb5-24" title="24">        <span class="fu">cleanup:</span><span class="at"> </span><span class="kw">[]</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">settings</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="at">    </span><span class="fu">recursive</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="at">    </span><span class="fu">follow-links</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">    </span><span class="fu">skip</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;.*&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;pandocomatic.yaml&#39;</span><span class="kw">]</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">templates</span><span class="kw">:</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="at">    </span><span class="fu">blog</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="at">        </span><span class="fu">glob</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;*.md&#39;</span><span class="kw">]</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="at">        </span><span class="fu">setup</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="at">        </span><span class="fu">preprocessors</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="at">        </span><span class="fu">pandoc</span><span class="kw">:</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="at">            </span><span class="fu">css</span><span class="kw">:</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="at">                </span><span class="kw">-</span><span class="at"> /css/pandoc-solarized.css</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="at">                </span><span class="kw">-</span><span class="at"> /css/pandoc.css</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="at">                </span><span class="kw">-</span><span class="at"> /css/tufte-extra.css</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="at">                </span><span class="kw">-</span><span class="at"> /css/tufte.css</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="at">            </span><span class="fu">filter</span><span class="kw">:</span><span class="at"> pandoc-sidenote</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="at">            </span><span class="fu">from</span><span class="kw">:</span><span class="at"> markdown+implicit_header_references</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="at">            </span><span class="fu">section-divs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="at">            </span><span class="fu">template</span><span class="kw">:</span><span class="at"> tufte.html5</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="at">            </span><span class="fu">to</span><span class="kw">:</span><span class="at"> html5+smart</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="at">            </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="at">        </span><span class="fu">postprocessors</span><span class="kw">:</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="at">            </span><span class="kw">-</span><span class="at"> postprocessors/tidy.sh</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="at">        </span><span class="fu">cleanup</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span></code></pre></div>
 <p>In brief, the configuration above recursively scans for all <code>*.md</code> files and invokes <code>pandoc</code> with the given <code>css</code> files, template, filter, etc, and converts to <code>html5+smart</code> format. After conversion, the <code>tidy.sh</code> post-processor is run to cleanup the <code>HTML</code> document formatting.</p>
 <p>To run <code>pandocomatic</code>, you need to provide the content, configuration, and output directories.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb6-1" title="1">pandocomatic <span class="kw">\</span></a>
-<a class="sourceLine" id="cb6-2" title="2">    --quiet <span class="kw">\</span></a>
-<a class="sourceLine" id="cb6-3" title="3">    --data-dir <span class="st">&quot;./jasonpeacock.markdown/pandocomatic&quot;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb6-4" title="4">    --input <span class="st">&quot;./jasonpeacock.markdown/content&quot;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb6-5" title="5">    --output <span class="st">&quot;./jasonpeacock.com&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1"></a>pandocomatic <span class="kw">\</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>    --quiet <span class="kw">\</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>    --data-dir <span class="st">&quot;./jasonpeacock.markdown/pandocomatic&quot;</span> <span class="kw">\</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>    --input <span class="st">&quot;./jasonpeacock.markdown/content&quot;</span> <span class="kw">\</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>    --output <span class="st">&quot;./jasonpeacock.com&quot;</span></span></code></pre></div>
 <p>To simplify this, I’ve written a wrapper script <a href="https://github.com/jasonpeacock/websites/blob/master/website-generate"><code>website-generate</code></a>. It takes the name of the website (<code>jasonpeacock.com</code>) as a parameter, then will look for a matching <code>jasonpeacock.markdown</code> directory to convert the content from.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb7-1" title="1">./website-generate jasonpeacock.com</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1"></a>./website-generate jasonpeacock.com</span></code></pre></div>
 <p>It also copies the contents of <code>jasonpeacock.markdown/resources/</code> into the root of the new website <code>jasonpeacock.com/</code> directory, resulting in a complete, static website at <code>jasonpeacock.com/</code>.</p>
 <p>To automatically rebuild the website after every edit, the <a href="http://eradman.com/entrproject/"><code>entr</code></a> tool is used to watch all files in the website directory.</p>
 <p><span><label for="sn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-18" class="margin-toggle"/><span class="marginnote"><code>rg</code> is <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>, a super-powered <code>grep</code> replacement.<br />
 <br />
 </span></span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb8-1" title="1">rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1"></a>rg -l <span class="kw">.</span> jasonpeacock.markdown <span class="kw">|</span> entr ./website-generate jasonpeacock.com</span></code></pre></div>
 </section>
 </section>
 <section id="reviewing" class="level2">
 <h2>Reviewing</h2>
 <p><span class="newthought">After the website is built</span> it needs to be reviewed. Unfortunately, merely viewing the <code>index.html</code> file in your browser is not enough to load the CSS and other required resources.</p>
 <p>The simplest approach is to use one of the built-in webservers from Python, Ruby, etc. and load the page at: <a href="http://localhost:8000/">http://localhost:8000/</a></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># Python 3</span></a>
-<a class="sourceLine" id="cb9-2" title="2">python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Python 3</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>python3 -m http.server -d jasonpeacock.com <span class="kw">&amp;</span></span></code></pre></div>
 <p>The website should display correctly with the Tufte CSS style and all images, videos, links, etc working.</p>
 </section>
 <section id="publishing" class="level2">
@@ -419,24 +420,24 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 </span></span> content is the single source of authority.</p>
 <p>The <code>rysnc</code> command is configured to be efficient, only pushing files and attributes that have changed, and removing remote files that are no longer relevant. The webhost is already configured for passwordless-ssh.</p>
 <p>An example <code>rsync</code> configuration is below.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb10-1" title="1">rsync <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-2" title="2">    --checksum <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-3" title="3">    --compress <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-4" title="4">    --delay-updates <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-5" title="5">    --delete <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-6" title="6">    --delete-after <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-7" title="7">    --force <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-8" title="8">    --human-readable <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-9" title="9">    --links <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-10" title="10">    --perms <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-11" title="11">    --progress <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-12" title="12">    --recursive <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-13" title="13">    --safe-links <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-14" title="14">    --stats <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-15" title="15">    <span class="st">&quot;jasonpeacock.com&quot;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb10-16" title="16">    <span class="st">&quot;my_user@jasonpeacock.com:/home/my_user&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb10-1"><a href="#cb10-1"></a>rsync <span class="kw">\</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>    --checksum <span class="kw">\</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    --compress <span class="kw">\</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>    --delay-updates <span class="kw">\</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    --delete <span class="kw">\</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    --delete-after <span class="kw">\</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>    --force <span class="kw">\</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    --human-readable <span class="kw">\</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>    --links <span class="kw">\</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a>    --perms <span class="kw">\</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>    --progress <span class="kw">\</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a>    --recursive <span class="kw">\</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>    --safe-links <span class="kw">\</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>    --stats <span class="kw">\</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a>    <span class="st">&quot;jasonpeacock.com&quot;</span> <span class="kw">\</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>    <span class="st">&quot;my_user@jasonpeacock.com:/home/my_user&quot;</span></span></code></pre></div>
 <p>To simplify this, I’ve written a wrapper script <a href="https://github.com/jasonpeacock/websites/blob/master/website-publish"><code>website-publish</code></a>. It takes the name of the website (<code>jasonpeacock.com</code>) as a parameter and <code>rysnc</code>’s the website directory to the webhost.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb11-1" title="1">./website-publish jasonpeacock.com</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb11-1"><a href="#cb11-1"></a>./website-publish jasonpeacock.com</span></code></pre></div>
 </section>
 <section id="known-issues" class="level2">
 <h2>Known Issues</h2>
@@ -487,42 +488,42 @@ Introduction to <a href="https://heerdebeer.org/Software/markdown/pandocomatic/#
 <section id="code-blocks" class="level3">
 <h3>Code Blocks</h3>
 <p>Syntax-highlighted code.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</a>
-<a class="sourceLine" id="cb12-2" title="2">    <span class="va">self</span>.arg <span class="op">=</span> arg</a>
-<a class="sourceLine" id="cb12-3" title="3">    <span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="va">self</span>.arg <span class="op">=</span> arg</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    <span class="cf">return</span> <span class="va">True</span></span></code></pre></div>
 <p> </p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb13-1" title="1"><span class="bn">    ```{.python}</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="bn">    def funtion(self, *, arg):</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="bn">      self.arg = arg</span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="bn">      return True</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="bn">    ```</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="bn">    ```{.python}</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="bn">    def funtion(self, *, arg):</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="bn">      self.arg = arg</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bn">      return True</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="bn">    ```</span></span></code></pre></div>
 <p>Syntax-highlighted code with line numbers.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</a>
-<a class="sourceLine" id="cb14-2" title="2">    <span class="va">self</span>.arg <span class="op">=</span> arg</a>
-<a class="sourceLine" id="cb14-3" title="3">    <span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> funtion(<span class="va">self</span>, <span class="op">*</span>, arg):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="va">self</span>.arg <span class="op">=</span> arg</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="cf">return</span> <span class="va">True</span></span></code></pre></div>
 <p> </p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" title="1"><span class="bn">    ```{.python .numberLines}</span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="bn">    def funtion(self, *, arg):</span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="bn">      self.arg = arg</span></a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="bn">      return True</span></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="bn">    ```</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="bn">    ```{.python .numberLines}</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="bn">    def funtion(self, *, arg):</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="bn">      self.arg = arg</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="bn">      return True</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="bn">    ```</span></span></code></pre></div>
 </section>
 <section id="epigraphsblockquotes" class="level3">
 <h3>Epigraphs/blockquotes</h3>
 <p>Epigraphs/blockquotes require a wrapping <code>&lt;div class="epigraph"&gt;</code> tag.</p>
 <p><em>Note: The blank <code>&gt;</code> line between quote and footer is required. Otherwise the blockquote won’t be wrapped in <code>&lt;p&gt;</code> tags and it will not constrain itself to the column width.</em></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;epigraph&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb16-2" title="2">&gt; Something insightful.</a>
-<a class="sourceLine" id="cb16-3" title="3">&gt;</a>
-<a class="sourceLine" id="cb16-4" title="4">&gt; <span class="kw">&lt;footer&gt;</span></a>
-<a class="sourceLine" id="cb16-5" title="5">&gt; Who said it.</a>
-<a class="sourceLine" id="cb16-6" title="6">&gt; <span class="kw">&lt;/footer&gt;</span></a>
-<a class="sourceLine" id="cb16-7" title="7"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;epigraph&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>&gt; Something insightful.</span>
+<span id="cb16-3"><a href="#cb16-3"></a>&gt;</span>
+<span id="cb16-4"><a href="#cb16-4"></a>&gt; <span class="kw">&lt;footer&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>&gt; Who said it.</span>
+<span id="cb16-6"><a href="#cb16-6"></a>&gt; <span class="kw">&lt;/footer&gt;</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
 </section>
 <section id="newthought" class="level3">
 <h3>Newthought</h3>
 <p><span class="newthought">A newthought</span> starting a new section.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb17-1" title="1">[A newthought]{.newthought} starting a new section.</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a>[A newthought]{.newthought} starting a new section.</span></code></pre></div>
 </section>
 <section id="sections" class="level3">
 <h3>Sections</h3>
@@ -537,19 +538,19 @@ First content in a page before a header.
 <br />
 </span></span>.</p>
 <p>Add a <code>header-includes</code> attribute to the content <code>YAML</code> header to load the video CSS.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb19-1" title="1"><span class="fu">header-includes:</span> <span class="st">|</span></a>
-<a class="sourceLine" id="cb19-2" title="2">    ```{=html}</a>
-<a class="sourceLine" id="cb19-3" title="3">    &lt;link href=&quot;https://vjs.zencdn.net/7.4.1/video-js.css&quot; rel=&quot;stylesheet&quot;&gt;</a>
-<a class="sourceLine" id="cb19-4" title="4">    ```</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">header-includes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>    ```{=html}</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    &lt;link href=&quot;https://vjs.zencdn.net/7.4.1/video-js.css&quot; rel=&quot;stylesheet&quot;&gt;</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    ```</span></code></pre></div>
 <p>Add the video player to the content where you want the video to appear.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">&lt;figure&gt;</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="kw">&lt;video-js</span><span class="ot"> id=</span><span class="st">&quot;final_result&quot;</span><span class="ot"> class=</span><span class="st">&quot;vjs-16-9 vjs-big-play-centered&quot;</span><span class="ot"> controls preload=</span><span class="st">&quot;auto&quot;</span><span class="ot"> data-setup=</span><span class="st">&#39;{}&#39;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb20-3" title="3"><span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;images/final_result_web.mp4&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/mp4&#39;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb20-4" title="4"><span class="kw">&lt;/video-js&gt;</span></a>
-<a class="sourceLine" id="cb20-5" title="5"><span class="kw">&lt;/figure&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">&lt;figure&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">&lt;video-js</span><span class="ot"> id=</span><span class="st">&quot;final_result&quot;</span><span class="ot"> class=</span><span class="st">&quot;vjs-16-9 vjs-big-play-centered&quot;</span><span class="ot"> controls preload=</span><span class="st">&quot;auto&quot;</span><span class="ot"> data-setup=</span><span class="st">&#39;{}&#39;</span><span class="kw">&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;images/final_result_web.mp4&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/mp4&#39;</span><span class="kw">&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="kw">&lt;/video-js&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="kw">&lt;/figure&gt;</span></span></code></pre></div>
 <p>Load the video player script at the end of the content.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb21-1" title="1"><span class="co">&lt;!-- Load JS last after page load for best UX --&gt;</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://vjs.zencdn.net/7.4.1/video.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">&lt;!-- Load JS last after page load for best UX --&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://vjs.zencdn.net/7.4.1/video.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span></code></pre></div>
 </section>
 <section id="tables" class="level3">
 <h3>Tables</h3>
@@ -571,11 +572,11 @@ First content in a page before a header.
 </tbody>
 </table>
 </figure>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb22-1" title="1">&lt;figure class=&quot;fullwidth&quot;&gt;</a>
-<a class="sourceLine" id="cb22-2" title="2">|Col 1 |Col 2|</a>
-<a class="sourceLine" id="cb22-3" title="3">|-|-|</a>
-<a class="sourceLine" id="cb22-4" title="4">|some content|more content|</a>
-<a class="sourceLine" id="cb22-5" title="5">&lt;/figure&gt;</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a>&lt;figure class=&quot;fullwidth&quot;&gt;</span>
+<span id="cb22-2"><a href="#cb22-2"></a>|Col 1 |Col 2|</span>
+<span id="cb22-3"><a href="#cb22-3"></a>|-|-|</span>
+<span id="cb22-4"><a href="#cb22-4"></a>|some content|more content|</span>
+<span id="cb22-5"><a href="#cb22-5"></a>&lt;/figure&gt;</span></code></pre></div>
 <p>A full-width table without headers.</p>
 <figure class="fullwidth">
 <table>
@@ -587,16 +588,16 @@ First content in a page before a header.
 </tbody>
 </table>
 </figure>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb23-1" title="1">&lt;figure class=&quot;fullwidth&quot;&gt;</a>
-<a class="sourceLine" id="cb23-2" title="2">|||</a>
-<a class="sourceLine" id="cb23-3" title="3">|-|-|</a>
-<a class="sourceLine" id="cb23-4" title="4">|some content|more content|</a>
-<a class="sourceLine" id="cb23-5" title="5">&lt;/figure&gt;</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1"></a>&lt;figure class=&quot;fullwidth&quot;&gt;</span>
+<span id="cb23-2"><a href="#cb23-2"></a>|||</span>
+<span id="cb23-3"><a href="#cb23-3"></a>|-|-|</span>
+<span id="cb23-4"><a href="#cb23-4"></a>|some content|more content|</span>
+<span id="cb23-5"><a href="#cb23-5"></a>&lt;/figure&gt;</span></code></pre></div>
 </section>
 <section id="table-of-contents" class="level3">
 <h3>Table of Contents</h3>
 <p>Include a <code>toc-title</code> attribute in the <code>YAML</code> header to automatically generate a table of contents at the top of the page.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb24-1" title="1"><span class="fu">toc-title:</span><span class="at"> Table Of Contents</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> Table Of Contents</span></span></code></pre></div>
 </section>
 </section>
 <section id="appendix" class="level2">
